@@ -1,338 +1,2693 @@
-/* =========================
-   RESET BÁSICO
-========================= */
+/* =========================================================
+   MENTE SAUDÁVEL
+   CSS RECONSTRUÍDO
+   Compatível com o HTML corrigido
+========================================================= */
+
+
+/* =========================================================
+   1. RESET GERAL
+========================================================= */
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background-color: #F1EDEA;
-  color: #05B084;
-  line-height: 1.6;
+    min-height: 100vh;
+
+    background: #e0dfde;
+
+    color: #334155;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    line-height: 1.6;
 }
 
-/* =========================
-   CABEÇALHO
-========================= */
-.cabecalho {
-  color: #FFFFFF;
-  padding: 60px 20px 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  flex-direction: column;
-  text-align: center;
+
+/* =========================================================
+   2. ELEMENTOS GERAIS
+========================================================= */
+
+img {
+    max-width: 100%;
 }
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+p {
+    color: #10B981;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #0F766E;
+
+    font-size: 42px;
+
+    line-height: 1.2;
+
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #0F766E;
+
+    font-size: 28px;
+
+    line-height: 1.3;
+
+    margin-bottom: 15px;
+}
+
+.hr {
+    width: min(1000px, calc(100% - 40px));
+
+    margin: 50px auto;
+
+    border: 0;
+
+    border-top: 1px solid rgba(15, 118, 110, 0.20);
+}
+
+
+/* =========================================================
+   3. CABEÇALHO
+========================================================= */
+
+.cabecalho {
+    width: 100%;
+
+    padding: 45px 20px 25px;
+
+    text-align: center;
+}
+
+
+/* Área do logo */
 
 .container-logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 10px;
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 18px;
 }
 
-/* Logo */
+
+/* Imagem */
+
 .logo-imagem {
-  height: 72px;
-  border-radius: 16px;
-  object-fit: cover;
+    width: 85px;
+
+    height: 85px;
+
+    object-fit: cover;
+
+    border-radius: 18px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 5px 18px rgba(0, 0, 0, 0.10);
 }
 
-/* Título principal */
+
+/* Texto do logo */
+
+.logo-texto {
+    text-align: left;
+}
+
+
+/* Título */
+
 .titulo-principal {
-  margin: 0;
-  display: flex;
-  font-size: 20px;
+    margin: 0;
+
+    font-size: 58px;
+
+    line-height: 1;
+
+    font-weight: 700;
 }
 
 .fonte-mente {
-  font-family: 'DM Serif Display', serif;
-  color: #096C6C;
-  font-size: clamp(2rem, 4vw, 3.2rem);
+    color: #0F766E;
 }
 
 .fonte-saudavel {
-  font-family: 'Playfair Display', serif;
-  font-style: oblique 90deg; 
-  color: #F1C338;
-  font-size: clamp(2rem, 4vw, 3.2rem);
+    color: #EAB308;
 }
+
+
+/* Subtítulo */
 
 .subtitulo {
-  font-family: 'Montserrat Alternates', sans-serif;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #F1C338;
-  width: 70%;
-  margin-top: -25px;
-  margin-left: 50px;
+    margin: 8px 0 0;
+
+    color: #EAB308;
+
+    font-size: 21px;
+
+    font-weight: 500;
+
+    letter-spacing: 0.5px;
 }
+
+
+/* =========================================================
+   4. MENU DE NAVEGAÇÃO
+========================================================= */
 
 .menu-navegacao {
-  width: min(1280px, 90vw);
-  background-color: #FFFFFF;
-  border-radius: 30px;
-  padding: 14px 18px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 12px 18px;
+    width: min(1100px, calc(100% - 20px));
+
+    margin: 35px auto 55px;
+
+    padding: 14px 20px;
+
+    background: #ffffff;
+
+    border-radius: 50px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    box-shadow:
+        0 4px 16px rgba(0, 0, 0, 0.08);
 }
+
 
 .menu-link {
-  color: #096C6C;
-  text-decoration: none;
-  padding: 8px 12px;
-  border-radius: 999px;
-  transition: all 0.3s ease;
-  font-weight: 600;
-  line-height: 1.2;
+    position: relative;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 10px 18px;
+
+    color: #0F766E;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    border-radius: 30px;
+
+    transition:
+        color 0.25s ease,
+        background-color 0.25s ease,
+        transform 0.25s ease;
 }
+
 
 .menu-link:hover {
-  color: #F1C338;
-  background-color: rgba(241, 195, 56, 0.15);
-  transform: translateY(-1px);
+    color: #ffffff;
+
+    background: #0F766E;
+
+    transform: translateY(-2px);
 }
 
 
+/* =========================================================
+   5. CONTEÚDO PRINCIPAL
+========================================================= */
 
-/* =========================
-   HERO
-========================= */
+main {
+    width: 100%;
+}
+
+main > section {
+    width: min(1100px, calc(100% - 40px));
+
+    margin-left: auto;
+
+    margin-right: auto;
+
+    margin-bottom: 50px;
+}
+
+
+/* =========================================================
+   6. HERO
+========================================================= */
+
 .secao-hero {
-  background: #F1EDEA;
-  padding: 60px 20px;
-  border-radius: 20px;
-  margin: 20px;
-  position: relative;
-  overflow: hidden;
+    min-height: 430px;
+
+    padding: 70px 60px;
+
+    display: flex;
+
+    align-items: center;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff 0%,
+            #f0fdf4 100%
+        );
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.07);
 }
+
+
+.hero-conteudo {
+    width: 100%;
+
+    max-width: 900px;
+
+    margin: 0 auto;
+}
+
 
 .hero-titulo {
-  font-size: 2.4rem;
-  color: #096C6C;
-  margin-bottom: 50px;
-  margin-left: 250px;
+    margin-bottom: 20px;
+
+    color: #0F766E;
+
+    font-size: 52px;
+
+    font-weight: 700;
 }
+
 
 .hero-texto {
-  max-width: 700px;
-  font-size: 1.1rem;
-  margin-left: 100px;
-  margin-top: -15px;
+    max-width: 850px;
+
+    color: #475569;
+
+    font-size: 20px;
+
+    line-height: 1.8;
 }
 
-.hero-botoes a {
-  display: inline-block;
-  padding: 12px 24px;
-  border-radius: 25px;
-  font-weight: bold;
-  transition: all 0.3s ease;
-  margin-left: 125px;
-  margin-top: 30px;
-  font-style: normal;
+
+/* Botões */
+
+.hero-botoes {
+    margin-top: 35px;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 18px;
 }
+
+
+.hero-botao-um,
+.hero-botao-dois {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 52px;
+
+    padding: 14px 28px;
+
+    border-radius: 50px;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
 
 .hero-botao-um {
-  background-color: #F1C338;
-  color: #096C6C;
+    background: #EAB308;
+
+    color: #0F766E;
 }
+
 
 .hero-botao-dois {
-  background-color: #096C6C;
-  color: #FFFFFF;
+    background: #0F766E;
+
+    color: #ffffff;
 }
 
-.hero-botoes a:hover {
-  transform: scale(1.08);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+
+.hero-botao-um:hover,
+.hero-botao-dois:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 7px 18px rgba(0, 0, 0, 0.15);
 }
 
-/* =========================
-   MURAL MOTIVACIONAL
-========================= */
+
+/* =========================================================
+   7. MURAL MOTIVACIONAL
+========================================================= */
+
 .mural {
-  background-color: #B3EBF2;
+    width: min(1000px, calc(100% - 40px));
+
+    margin-left: auto;
+
+    margin-right: auto;
+
+    padding: 40px 30px;
+
+    background: #B3EBF2;
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 5px 18px rgba(0, 0, 0, 0.07);
 }
+
 
 .mural-titulo {
-  text-align: center;
-  font-size: 22px;
-  font-weight: bold;
-  margin-bottom: 20px;
+    margin-bottom: 28px;
 
+    color: #096C6C;
+
+    font-size: 32px;
+
+    text-align: center;
 }
+
+
+/* Área que esconde os cards */
 
 .carrosel {
-  position: relative;
-  padding: 0 20px;
-  max-width: 1050px;
-  margin: 0 auto;
-  overflow: hidden;
+    position: relative;
+
+    width: 100%;
+
+    overflow: hidden;
 }
+
+
+/* Trilho */
 
 .carrosel-track {
-  display: flex;
-  transition: transform 0.5s ease;
+    display: flex;
+
+    gap: 15px;
+
+    transition:
+        transform 0.5s ease;
 }
+
+
+/* Cards */
 
 .mensagem {
-  flex: 0 0 calc(33,33%-20px);
-  background: #f5f5f5;
-  margin: 10px;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  text-align: center;
+    flex: 0 0 calc(33.333% - 10px);
+
+    min-height: 180px;
+
+    padding: 22px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    background: #ffffff;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 3px 10px rgba(0, 0, 0, 0.08);
 }
+
 
 .texto {
-  font-size: 14px;
-  margin-bottom: 15px;
+    color: #334155;
+
+    font-size: 16px;
+
+    line-height: 1.6;
 }
+
 
 .rodape {
-  display: flex;
-  justify-content: space-between;
-  font-size: 12px;
-  color: #555;
+    margin-top: 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    color: #64748B;
+
+    font-size: 14px;
 }
+
+
+.icone {
+    font-size: 20px;
+}
+
+
+/* Controles */
 
 .controles {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin-top: 20px;
+    margin-top: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
 }
+
 
 .btn {
-  background: rgba(0,0,0,0.3);
-  color: #fff;
-  border: none;
-  padding: 8px 12px;
-  cursor: pointer;
-  border-radius: 5px;
+    width: 40px;
+
+    height: 40px;
+
+    border: 0;
+
+    border-radius: 50%;
+
+    background: #096C6C;
+
+    color: #ffffff;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 18px;
+
+    transition:
+        transform 0.25s ease,
+        background-color 0.25s ease;
 }
+
 
 .btn:hover {
-  background: rgba(0,0,0,0.6);
+    background: #0F766E;
+
+    transform: scale(1.08);
 }
+
 
 .dot {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  background: #bbb;
-  border-radius: 50%;
-  cursor: pointer;
+    width: 10px;
+
+    height: 10px;
+
+    padding: 0;
+
+    border: 0;
+
+    border-radius: 50%;
+
+    background: #9CA3AF;
 }
+
 
 .dot.active {
-  background: #333;
+    background: #096C6C;
 }
 
-/* =========================
-   CARROSSEL SAÚDE MENTAL
-========================= */
-.carrossel-container {
-  position: relative;
-  margin: 40px auto;
-  max-width: 900px;
+
+/* =========================================================
+   8. SEÇÃO SOBRE SAÚDE MENTAL
+========================================================= */
+
+.secao-sobre {
+    width: min(1000px, calc(100% - 40px));
+
+    margin-left: auto;
+
+    margin-right: auto;
 }
+
+
+.sobre-titulo {
+    margin-bottom: 28px;
+
+    color: #096C6C;
+
+    font-size: 38px;
+
+    text-align: center;
+}
+
+
+/* Container */
+
+.carrossel-container {
+    position: relative;
+
+    width: 100%;
+
+    padding: 45px 55px 70px;
+
+    background: #ffffff;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 5px 18px rgba(0, 0, 0, 0.08);
+}
+
+
+/* Área dos slides */
 
 .carrossel-slides {
-  display: flex;
-  overflow: hidden;
-  border-radius: 20px;
+    width: 100%;
+
+    overflow: hidden;
+
+    border-radius: 15px;
 }
+
+
+/* Slide */
 
 .carrossel-slide {
-  min-width: 100%;
-  transition: transform 0.4s ease-in-out;
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 35px;
+
+    animation:
+        aparecerSlide 0.4s ease;
 }
+
+
+@keyframes aparecerSlide {
+
+    from {
+        opacity: 0;
+
+        transform: translateX(15px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateX(0);
+    }
+
+}
+
+
+/* Slides escondidos */
+
+.carrossel-slide:not(.carrossel-slide-ativo) {
+    display: none;
+}
+
+
+/* Imagem */
+
+.carrossel-imagem-wrapper {
+    flex: 0 1 42%;
+
+    min-width: 280px;
+}
+
+
+.carrossel-img {
+    width: 100%;
+
+    height: 300px;
+
+    display: block;
+
+    object-fit: cover;
+
+    border-radius: 15px;
+}
+
+
+/* Conteúdo */
 
 .carrossel-conteudo {
-  padding: 20px;
-  background-color: #B3EBF2;
-  border-radius: 20px;
+    flex: 1;
+
+    min-width: 0;
 }
+
+
+.carrossel-slide-titulo {
+    margin-bottom: 18px;
+
+    color: #096C6C;
+
+    font-size: 30px;
+}
+
+
+.carrossel-texto {
+    margin-bottom: 14px;
+
+    color: #475569;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+
+
+/* Botões laterais */
 
 .carrossel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: #F1C338;
-  border: none;
-  padding: 12px;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: all 0.3s ease;
+    position: absolute;
+
+    top: 50%;
+
+    width: 44px;
+
+    height: 44px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transform: translateY(-50%);
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #F1C338;
+
+    color: #096C6C;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    box-shadow:
+        0 3px 10px rgba(0, 0, 0, 0.15);
+
+    z-index: 5;
+
+    transition:
+        transform 0.25s ease,
+        background-color 0.25s ease,
+        color 0.25s ease;
 }
+
 
 .carrossel-btn:hover {
-  background: #096C6C;
-  color: #FFFFFF;
+    background: #096C6C;
+
+    color: #ffffff;
+
+    transform:
+        translateY(-50%)
+        scale(1.08);
 }
 
-.btn-anterior { left: 10px; }
-.btn-proximo { right: 10px; }
 
-/* =========================
-   ÁREAS DE CUIDADO
-========================= */
-.cards-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  margin: 40px 20px;
+.carrossel-container .btn-anterior {
+    left: 10px;
 }
 
-.card {
-  background-color: #FFFFFF;
-  border-radius: 20px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  padding: 20px;
-  width: 280px;
-  transition: all 0.3s ease;
-  text-align: center;
+
+.carrossel-container .btn-proximo {
+    right: 10px;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+
+/* Indicadores */
+
+.carrossel-indicadores {
+    position: absolute;
+
+    bottom: 25px;
+
+    left: 0;
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
 }
 
-.card-title {
-  color: #096C6C;
-  margin-bottom: 10px;
+
+.indicador {
+    width: 12px;
+
+    height: 12px;
+
+    padding: 0;
+
+    border: 0;
+
+    border-radius: 50%;
+
+    background: #CBD5E1;
+
+    cursor: pointer;
+
+    transition:
+        width 0.25s ease,
+        background-color 0.25s ease;
 }
 
-.card-text {
-  font-size: 0.95rem;
+
+.indicador.ativo {
+    width: 25px;
+
+    border-radius: 10px;
+
+    background: #096C6C;
 }
 
-.card button {
-  margin-top: 10px;
-  background-color: #F1C338;
-  color: #096C6C;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+
+/* =========================================================
+   CURIOSIDADES
+========================================================= */
+
+.curiosidades {
+    width: 100%;
+
+    padding: 70px 20px;
+
+    box-sizing: border-box;
 }
 
-.card button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+
+.curiosidades-container {
+    width: min(1100px, 100%);
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   CABEÇALHO
+========================================================= */
+
+.curiosidades-cabecalho {
+    margin-bottom: 45px;
+
+    text-align: center;
+}
+
+
+.curiosidades-tag,
+.video-tag {
+    display: inline-block;
+
+    margin-bottom: 12px;
+
+    color: #10B981;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+.curiosidades-cabecalho h2 {
+    margin: 0 0 15px;
+
+    color: #0F766E;
+
+    font-size: 42px;
+
+    line-height: 1.2;
+
+    font-weight: 700;
+}
+
+
+.curiosidades-cabecalho p {
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    color: #475569;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   GRID DOS CARDS
+========================================================= */
+
+.curiosidades-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.curiosidade-card {
+    overflow: hidden;
+
+    background: #ffffff;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.08);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.curiosidade-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================================================
+   IMAGEM
+========================================================= */
+
+.curiosidade-imagem {
+    position: relative;
+
+    width: 100%;
+
+    height: 210px;
+
+    overflow: hidden;
+}
+
+
+.curiosidade-imagem img {
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.5s ease;
+}
+
+
+.curiosidade-card:hover
+.curiosidade-imagem img {
+    transform: scale(1.05);
+}
+
+
+/* =========================================================
+   NÚMERO
+========================================================= */
+
+.curiosidade-numero {
+    position: absolute;
+
+    top: 15px;
+
+    right: 15px;
+
+    width: 42px;
+
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(15, 118, 110, 0.92);
+
+    color: #ffffff;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   CONTEÚDO
+========================================================= */
+
+.curiosidade-conteudo {
+    padding: 25px;
+}
+
+
+.curiosidade-icone {
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-size: 28px;
+}
+
+
+.curiosidade-conteudo h3 {
+    margin: 0 0 12px;
+
+    color: #0F766E;
+
+    font-size: 21px;
+
+    line-height: 1.3;
+}
+
+
+.curiosidade-conteudo p {
+    margin: 0;
+
+    color: #475569;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   VÍDEO
+========================================================= */
+
+.curiosidade-video {
+    margin-top: 45px;
+
+    padding: 35px;
+
+    display: grid;
+
+    grid-template-columns:
+        0.8fr 1.2fr;
+
+    align-items: center;
+
+    gap: 40px;
+
+    background: #ffffff;
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+
+.video-cabecalho h3 {
+    margin: 0 0 15px;
+
+    color: #0F766E;
+
+    font-size: 28px;
+
+    line-height: 1.3;
+}
+
+
+.video-cabecalho p {
+    margin: 0;
+
+    color: #475569;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   ÁREA DO VÍDEO
+========================================================= */
+
+.video-wrapper {
+    width: 100%;
+
+    overflow: hidden;
+
+    border-radius: 17px;
+
+    background: #0F172A;
+
+    box-shadow:
+        0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+
+.video-wrapper video {
+    width: 100%;
+
+    display: block;
+
+    aspect-ratio: 16 / 9;
+
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .curiosidades-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .curiosidade-video {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+    }
+
+}
+
+
+/* =========================================================
+   CELULAR
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .curiosidades {
+        padding: 50px 15px;
+    }
+
+
+    .curiosidades-cabecalho {
+        margin-bottom: 30px;
+    }
+
+
+    .curiosidades-cabecalho h2 {
+        font-size: 32px;
+    }
+
+
+    .curiosidades-cabecalho p {
+        font-size: 15px;
+    }
+
+
+    .curiosidades-grid {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+
+    .curiosidade-imagem {
+        height: 220px;
+    }
+
+
+    .curiosidade-video {
+        margin-top: 30px;
+
+        padding: 22px;
+
+        border-radius: 20px;
+    }
+
+
+    .video-cabecalho h3 {
+        font-size: 23px;
+    }
+
+
+    .video-cabecalho p {
+        font-size: 15px;
+    }
+
+}
+
+
+/* =========================================================
+   QUIZ
+========================================================= */
+
+#quiz {
+    width: min(1100px, calc(100% - 40px));
+
+    margin: 0 auto 50px;
+}
+
+
+/* =========================================================
+   TÍTULO
+========================================================= */
+
+.quiz-container h2 {
+    margin: 0 0 38px;
+
+    color: #0F766E;
+
+    font-size: 42px;
+
+    line-height: 1.2;
+
+    font-weight: 700;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   FORMULÁRIO
+========================================================= */
+
+.quiz-container form {
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 28px;
+}
+
+
+/* =========================================================
+   CARTÃO DA PERGUNTA
+========================================================= */
+
+.quiz-container fieldset {
+    width: 100%;
+
+    min-width: 0;
+
+    margin: 0;
+
+    padding: 28px 35px 30px;
+
+    border: none;
+
+    border-radius: 22px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================================
+   TÍTULO DA PERGUNTA
+========================================================= */
+
+.quiz-pergunta {
+    width: 100%;
+
+    margin: 0 0 22px;
+
+    padding: 0;
+
+    color: #0F766E;
+
+    font-size: 21px;
+
+    line-height: 1.4;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   ALTERNATIVAS
+========================================================= */
+
+.quiz-container fieldset label {
+    width: 100%;
+
+    min-height: 42px;
+
+    margin: 0;
+
+    padding: 7px 0;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    color: #475569;
+
+    font-size: 17px;
+
+    line-height: 1.5;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+/* Texto da alternativa */
+
+.quiz-container fieldset label span {
+    display: block;
+
+    flex: 1;
+}
+
+
+/* Efeito ao passar o mouse */
+
+.quiz-container fieldset label:hover {
+    color: #0F766E;
+
+    transform: translateX(3px);
+}
+
+
+/* =========================================================
+   RADIO
+========================================================= */
+
+.quiz-container fieldset input[type="radio"] {
+    width: 19px;
+
+    height: 19px;
+
+    margin: 0;
+
+    flex: 0 0 auto;
+
+    accent-color: #0F766E;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   ALTERNATIVA SELECIONADA
+========================================================= */
+
+.quiz-container fieldset label:has(
+    input[type="radio"]:checked
+) {
+    color: #0F766E;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   BOTÃO
+========================================================= */
+
+.quiz-container .botao-verde {
+    align-self: center;
+
+    margin: 5px 0 0;
+
+    padding: 14px 34px;
+
+    border: none;
+
+    border-radius: 50px;
+
+    background: #0F766E;
+
+    color: #ffffff;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 4px 12px rgba(15, 118, 110, 0.20);
+
+    transition:
+        transform 0.25s ease,
+        background-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.quiz-container .botao-verde:hover {
+    background: #096C6C;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 7px 18px rgba(15, 118, 110, 0.25);
+}
+
+
+/* =========================================================
+   RESULTADO
+========================================================= */
+
+#resultadoQuiz {
+    width: 100%;
+
+    margin: 15px 0 0;
+
+    padding: 20px;
+
+    border-radius: 16px;
+
+    background: #F0FDF4;
+
+    color: #0F766E;
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 768px) {
+
+    #quiz {
+        width: calc(100% - 30px);
+    }
+
+
+    .quiz-container h2 {
+        margin-bottom: 30px;
+
+        font-size: 34px;
+    }
+
+
+    .quiz-container form {
+        gap: 20px;
+    }
+
+
+    .quiz-container fieldset {
+        padding: 25px 22px 24px;
+
+        border-radius: 18px;
+    }
+
+
+    .quiz-pergunta {
+        margin-bottom: 18px;
+
+        font-size: 19px;
+    }
+
+
+    .quiz-container fieldset label {
+        font-size: 16px;
+    }
+
+}
+
+
+/* =========================================================
+   CELULAR
+========================================================= */
+
+@media (max-width: 480px) {
+
+    #quiz {
+        width: calc(100% - 24px);
+    }
+
+
+    .quiz-container h2 {
+        margin-bottom: 25px;
+
+        font-size: 29px;
+    }
+
+
+    .quiz-container form {
+        gap: 16px;
+    }
+
+
+    .quiz-container fieldset {
+        padding: 22px 18px 20px;
+
+        border-radius: 16px;
+    }
+
+
+    .quiz-pergunta {
+        margin-bottom: 16px;
+
+        font-size: 17px;
+
+        line-height: 1.4;
+    }
+
+
+    .quiz-container fieldset label {
+        min-height: 40px;
+
+        padding: 6px 0;
+
+        gap: 10px;
+
+        font-size: 15px;
+    }
+
+
+    .quiz-container fieldset input[type="radio"] {
+        width: 18px;
+
+        height: 18px;
+    }
+
+
+    .quiz-container .botao-verde {
+        width: 100%;
+
+        padding: 13px 20px;
+    }
+
+}
+
+/* =========================================================
+   11. TERMÔMETRO
+========================================================= */
+
+.termometro-container {
+    padding: 45px;
+
+    background: #ffffff;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 5px 18px rgba(0, 0, 0, 0.07);
+}
+
+
+.termometro-titulo {
+    margin-bottom: 12px;
+
+    font-size: 34px;
+
+    text-align: center;
+}
+
+
+.termometro-container > p {
+    color: #475569;
+
+    text-align: center;
+}
+
+
+/* Slider */
+
+.slider-container {
+    position: relative;
+
+    margin: 45px 0 25px;
+}
+
+
+#nivel {
+    width: 100%;
+
+    height: 8px;
+
+    appearance: none;
+
+    border-radius: 5px;
+
+    background: #D1D5DB;
+
+    outline: none;
+
+    cursor: pointer;
+}
+
+
+#nivel::-webkit-slider-thumb {
+    width: 24px;
+
+    height: 24px;
+
+    appearance: none;
+
+    border: 4px solid #ffffff;
+
+    border-radius: 50%;
+
+    background: #0F766E;
+
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+#nivel::-moz-range-thumb {
+    width: 24px;
+
+    height: 24px;
+
+    border: 4px solid #ffffff;
+
+    border-radius: 50%;
+
+    background: #0F766E;
+
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Valor */
+
+.valor-atual {
+    position: absolute;
+
+    top: -38px;
+
+    right: 0;
+
+    color: #0F766E;
+
+    font-size: 22px;
+
+    font-weight: 700;
+}
+
+
+/* Barra */
+
+.barra-termometro {
+    width: 100%;
+
+    height: 24px;
+
+    margin: 25px 0;
+
+    overflow: hidden;
+
+    background: #E5E7EB;
+
+    border-radius: 12px;
+}
+
+
+.preenchimento-termometro {
+    width: 50%;
+
+    height: 100%;
+
+    border-radius: 12px;
+
+    background: #EAB308;
+
+    transition:
+        width 0.3s ease,
+        background-color 0.3s ease;
+}
+
+
+/* Legenda */
+
+.faixas-legenda {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin-bottom: 30px;
+
+    color: #64748B;
+
+    font-size: 14px;
+}
+
+
+/* Mensagem */
+
+.card-mensagem {
+    margin: 20px 0;
+
+    padding: 25px;
+
+    background: #F8FAFC;
+
+    border-radius: 15px;
+
+    border-left:
+        5px solid #0F766E;
+}
+
+
+.card-mensagem p {
+    margin-bottom: 0;
+
+    color: #334155;
+
+    font-size: 17px;
+}
+
+
+.recomendacao {
+    margin-top: 18px;
+
+    padding-top: 18px;
+
+    border-top:
+        1px solid #E2E8F0;
+
+    color: #475569;
+
+    font-size: 15px;
+}
+
+
+/* Botão salvar */
+
+.botao-salvar {
+    width: 100%;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #0F766E;
+
+    color: #ffffff;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+.botao-salvar:hover {
+    background: #096C6C;
+
+    transform: translateY(-2px);
+}
+
+
+/* Histórico */
+
+.historico {
+    margin-top: 30px;
+
+    padding-top: 25px;
+
+    border-top:
+        1px solid #E5E7EB;
+}
+
+
+.historico h4 {
+    margin-bottom: 15px;
+
+    color: #0F766E;
+
+    font-size: 19px;
+}
+
+
+#listaHistorico {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+#listaHistorico p {
+    margin: 0;
+
+    padding: 10px 14px;
+
+    color: #475569;
+
+    background: #F8FAFC;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   MURAL VIRTUAL — FORMULÁRIO
+========================================================= */
+
+#mural-mensagem {
+    width: min(1100px, calc(100% - 40px));
+
+    margin: 40px auto 50px;
+
+    padding: 45px 55px;
+
+    background: #ffffff;
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.08);
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   TÍTULO
+========================================================= */
+
+#mural-mensagem h2 {
+    margin: 0 0 20px;
+
+    color: #0F766E;
+
+    font-size: 38px;
+
+    line-height: 1.2;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   TEXTO
+========================================================= */
+
+#mural-mensagem > p {
+    margin: 0 0 32px;
+
+    color: #10B981;
+
+    font-size: 17px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   FORMULÁRIO
+========================================================= */
+
+#mural-mensagem .form-mensagem {
+    width: 100%;
+
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 24px;
+}
+
+
+/* =========================================================
+   GRUPOS
+========================================================= */
+
+#mural-mensagem .input-nome,
+#mural-mensagem .input-mensagem {
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+}
+
+
+/* =========================================================
+   LABELS
+========================================================= */
+
+#mural-mensagem label {
+    color: #0F766E;
+
+    font-size: 15px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   CAMPO DE TEXTO
+========================================================= */
+
+#mural-mensagem input,
+#mural-mensagem textarea {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    border: 1px solid #CBD5E1;
+
+    border-radius: 13px;
+
+    background: #F8FAFC;
+
+    color: #334155;
+
+    font-family: inherit;
+
+    font-size: 16px;
+
+    outline: none;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background-color 0.25s ease;
+}
+
+
+#mural-mensagem input {
+    height: 56px;
+
+    padding: 0 18px;
+}
+
+
+#mural-mensagem textarea {
+    min-height: 150px;
+
+    padding: 16px 18px;
+
+    resize: vertical;
+}
+
+
+/* =========================================================
+   FOCO
+========================================================= */
+
+#mural-mensagem input:focus,
+#mural-mensagem textarea:focus {
+    border-color: #0F766E;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 0 3px rgba(15, 118, 110, 0.10);
+}
+
+
+/* =========================================================
+   BOTÃO
+========================================================= */
+
+#mural-mensagem .botao-publicar {
+    align-self: center;
+
+    margin-top: 4px;
+
+    padding: 15px 30px;
+
+    border: none;
+
+    border-radius: 50px;
+
+    background: #0F766E;
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 15px rgba(15, 118, 110, 0.20);
+
+    transition:
+        transform 0.25s ease,
+        background-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+#mural-mensagem .botao-publicar:hover {
+    background: #0B635D;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(15, 118, 110, 0.25);
+}
+
+
+/* =========================================================
+   ÁREA DAS MENSAGENS PUBLICADAS
+========================================================= */
+
+#muralMensagens {
+    width: 100%;
+
+    max-width: 900px;
+
+    margin: 35px auto 0 !important;
+
+    padding-top: 25px !important;
+
+    border-top: 1px solid #E2E8F0 !important;
+
+    color: #0F766E !important;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 768px) {
+
+    #mural-mensagem {
+        width: calc(100% - 30px);
+
+        padding: 35px 25px;
+
+        border-radius: 20px;
+    }
+
+
+    #mural-mensagem h2 {
+        font-size: 32px;
+    }
+
+
+    #mural-mensagem > p {
+        font-size: 16px;
+    }
+
+}
+
+
+/* =========================================================
+   CELULAR
+========================================================= */
+
+@media (max-width: 480px) {
+
+    #mural-mensagem {
+        width: calc(100% - 24px);
+
+        margin-top: 25px;
+
+        padding: 28px 18px;
+
+        border-radius: 17px;
+    }
+
+
+    #mural-mensagem h2 {
+        font-size: 28px;
+
+        text-align: center;
+    }
+
+
+    #mural-mensagem > p {
+        text-align: center;
+
+        font-size: 15px;
+    }
+
+
+    #mural-mensagem input {
+        height: 52px;
+    }
+
+
+    #mural-mensagem textarea {
+        min-height: 130px;
+    }
+
+
+    #mural-mensagem .botao-publicar {
+        width: 100%;
+    }
+
+}
+
+/* =========================================================
+   13. RODAPÉ
+========================================================= */
+
+footer {
+    width: 100%;
+
+    margin-top: 70px;
+
+    padding: 35px 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    background: #F8F9FA;
+
+    border-top:
+        1px solid #E2E8F0;
+
+    text-align: center;
+}
+
+
+footer p {
+    margin: 5px 0;
+
+    color: #64748B;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   14. RESPONSIVIDADE — TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    /* Cabeçalho */
+
+    .titulo-principal {
+        font-size: 48px;
+    }
+
+
+    /* Hero */
+
+    .secao-hero {
+        padding: 55px 40px;
+    }
+
+
+    .hero-titulo {
+        font-size: 44px;
+    }
+
+
+    /* Saúde Mental */
+
+    .carrossel-slide {
+        gap: 25px;
+    }
+
+
+    .carrossel-imagem-wrapper {
+        min-width: 240px;
+    }
+
+
+    .carrossel-img {
+        height: 260px;
+    }
+
+
+    /* Mural */
+
+    .mensagem {
+        flex-basis: calc(50% - 8px);
+    }
+
+}
+
+
+/* =========================================================
+   15. RESPONSIVIDADE — CELULAR
+========================================================= */
+
+@media (max-width: 768px) {
+
+    /* Geral */
+
+    main > section {
+        width: min(100% - 30px, 650px);
+
+        margin-bottom: 35px;
+    }
+
+
+    h2 {
+        font-size: 32px;
+    }
+
+
+    /* Cabeçalho */
+
+    .cabecalho {
+        padding-top: 30px;
+    }
+
+
+    .container-logo {
+        flex-direction: column;
+
+        gap: 12px;
+    }
+
+
+    .logo-texto {
+        text-align: center;
+    }
+
+
+    .logo-imagem {
+        width: 70px;
+
+        height: 70px;
+    }
+
+
+    .titulo-principal {
+        font-size: 38px;
+    }
+
+
+    .subtitulo {
+        font-size: 18px;
+    }
+
+
+    /* Menu */
+
+    .menu-navegacao {
+        width: calc(100% - 30px);
+
+        margin-top: 25px;
+
+        margin-bottom: 35px;
+
+        padding: 12px;
+
+        border-radius: 20px;
+
+        flex-direction: column;
+
+        gap: 5px;
+    }
+
+
+    .menu-link {
+        width: 100%;
+
+        padding: 9px 15px;
+    }
+
+
+    /* Hero */
+
+    .secao-hero {
+        min-height: auto;
+
+        padding: 40px 25px;
+
+        border-radius: 20px;
+    }
+
+
+    .hero-titulo {
+        font-size: 36px;
+
+        text-align: center;
+    }
+
+
+    .hero-texto {
+        font-size: 17px;
+
+        text-align: center;
+    }
+
+
+    .hero-botoes {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+
+    .hero-botao-um,
+    .hero-botao-dois {
+        width: 100%;
+    }
+
+
+    /* Mural motivacional */
+
+    .mural {
+        width: calc(100% - 30px);
+
+        padding: 30px 15px;
+
+        border-radius: 20px;
+    }
+
+
+    .mural-titulo {
+        font-size: 27px;
+    }
+
+
+    .mensagem {
+        flex: 0 0 100%;
+
+        min-height: 170px;
+    }
+
+
+    /* Saúde Mental */
+
+    .secao-sobre {
+        width: calc(100% - 30px);
+    }
+
+
+    .sobre-titulo {
+        font-size: 30px;
+    }
+
+
+    .carrossel-container {
+        padding: 25px 20px 65px;
+    }
+
+
+    .carrossel-slide {
+        flex-direction: column;
+
+        gap: 20px;
+
+        text-align: center;
+    }
+
+
+    .carrossel-imagem-wrapper {
+        width: 100%;
+
+        min-width: 0;
+    }
+
+
+    .carrossel-img {
+        height: 210px;
+    }
+
+
+    .carrossel-slide-titulo {
+        font-size: 25px;
+    }
+
+
+    .carrossel-texto {
+        font-size: 16px;
+    }
+
+
+    .carrossel-container .btn-anterior {
+        left: 5px;
+    }
+
+
+    .carrossel-container .btn-proximo {
+        right: 5px;
+    }
+
+
+    /* Curiosidades */
+
+    #curiosidades {
+        padding: 30px 22px;
+    }
+
+
+    /* Quiz */
+
+    #quiz {
+        width: calc(100% - 30px);
+    }
+
+
+    .quiz-container h2 {
+        font-size: 32px;
+    }
+
+
+    .quiz-container fieldset {
+        padding: 25px 20px;
+    }
+
+
+    .quiz-container legend {
+        font-size: 19px;
+    }
+
+
+    .quiz-container fieldset label {
+        font-size: 16px;
+    }
+
+
+    /* Termômetro */
+
+    .termometro-container {
+        padding: 30px 20px;
+    }
+
+
+    .termometro-titulo {
+        font-size: 27px;
+
+        line-height: 1.3;
+    }
+
+
+    .faixas-legenda {
+        gap: 5px;
+
+        font-size: 11px;
+    }
+
+
+    /* Mural publicação */
+
+    .mural-publicacao {
+        padding: 30px 20px;
+    }
+
+
+    .mural-publicacao > h2 {
+        font-size: 30px;
+    }
+
+}
+
+
+/* =========================================================
+   16. RESPONSIVIDADE — CELULARES PEQUENOS
+========================================================= */
+
+@media (max-width: 480px) {
+
+    /* Cabeçalho */
+
+    .logo-imagem {
+        width: 60px;
+
+        height: 60px;
+    }
+
+
+    .titulo-principal {
+        font-size: 31px;
+    }
+
+
+    .subtitulo {
+        font-size: 16px;
+    }
+
+
+    /* Hero */
+
+    .hero-titulo {
+        font-size: 30px;
+    }
+
+
+    .hero-texto {
+        font-size: 16px;
+    }
+
+
+    /* Geral */
+
+    h2 {
+        font-size: 27px;
+    }
+
+
+    p {
+        font-size: 16px;
+    }
+
+
+    /* Mural */
+
+    .mural-titulo {
+        font-size: 24px;
+    }
+
+
+    .mensagem {
+        min-height: 160px;
+
+        padding: 18px;
+    }
+
+
+    .texto {
+        font-size: 15px;
+    }
+
+
+    /* Saúde Mental */
+
+    .sobre-titulo {
+        font-size: 27px;
+    }
+
+
+    .carrossel-container {
+        padding: 20px 15px 60px;
+    }
+
+
+    .carrossel-img {
+        height: 180px;
+    }
+
+
+    .carrossel-slide-titulo {
+        font-size: 22px;
+    }
+
+
+    .carrossel-texto {
+        font-size: 15px;
+    }
+
+
+    .carrossel-btn {
+        width: 38px;
+
+        height: 38px;
+
+        font-size: 17px;
+    }
+
+
+    /* Quiz */
+
+    .quiz-container h2 {
+        font-size: 27px;
+    }
+
+
+    .quiz-container fieldset {
+        padding: 20px 15px;
+    }
+
+
+    .quiz-container legend {
+        font-size: 17px;
+    }
+
+
+    .quiz-container fieldset label {
+        font-size: 15px;
+    }
+
+
+    /* Termômetro */
+
+    .termometro-container {
+        padding: 25px 15px;
+    }
+
+
+    .termometro-titulo {
+        font-size: 24px;
+    }
+
+
+    .faixas-legenda {
+        font-size: 10px;
+    }
+
+
+    /* Footer */
+
+    footer {
+        padding: 30px 15px;
+    }
+
+
+    footer p {
+        font-size: 13px;
+    }
+
+}
+/* =========================================================
+   FUNDO ANIMADO — RESPIRAÇÃO DA MENTE
+========================================================= */
+
+#fundoAnimado {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    z-index: -1;
+
+    pointer-events: none;
+
+    opacity: 0.55;
+}
+
+/* Garante que o conteúdo fique acima da animação */
+
+body {
+    position: relative;
+}
+
+.cabecalho,
+main,
+footer {
+    position: relative;
+
+    z-index: 1;
 }
