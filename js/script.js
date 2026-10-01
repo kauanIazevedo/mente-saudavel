@@ -7,130 +7,81 @@
 
 
 /* =========================================================
-   TERMÔMETRO
+   QUIZ integrado ao TERMÔMETRO
 ========================================================= */
 
-const faixas = [
+function verificarQuiz(event) {
+    event.preventDefault();
 
-    {
-        min: 0,
-        max: 2,
-        cor: "#ef4444",
-        mensagem:
-            "Parece que hoje está sendo um dia difícil. Procure conversar com alguém de confiança e cuide de você.",
-        recomendacao:
-            "💡 Recomendação: Se possível, entre em contato com uma pessoa de confiança ou profissional de saúde. Você não está sozinho."
-    },
+    let pontos = 0;
 
-    {
-        min: 3,
-        max: 4,
-        cor: "#f97316",
-        mensagem:
-            "Talvez seja um bom momento para fazer uma pausa e observar como você está se sentindo.",
-        recomendacao:
-            "💡 Recomendação: Experimente sair para tomar um ar fresco por 5 minutos e alongue o corpo."
-    },
+    // Captura das respostas
+    const resposta1 = document.querySelector('input[name="pergunta1"]:checked');
+    const resposta2 = document.querySelector('input[name="pergunta2"]:checked');
+    const resposta3 = document.querySelector('input[name="pergunta3"]:checked');
 
-    {
-        min: 5,
-        max: 7,
-        cor: "#eab308",
-        mensagem:
-            "Você está em um nível intermediário. Reserve um momento para perceber suas necessidades.",
-        recomendacao:
-            "💡 Recomendação: Faça 3 respirações profundas e observe o que está ocupando sua mente no momento."
-    },
+    // Verificação das respostas corretas
+    if (resposta1 && resposta1.value === "b") pontos++;
+    if (resposta2 && resposta2.value === "a") pontos++;
+    if (resposta3 && resposta3.value === "c") pontos++;
 
-    {
-        min: 8,
-        max: 9,
-        cor: "#22c55e",
-        mensagem:
-            "Que bom! Aproveite esse momento e continue cuidando do seu bem-estar.",
-        recomendacao:
-            "💡 Recomendação: Que tal anotar o que está fazendo você se sentir bem hoje para repetir amanhã?"
-    },
+    // Exibição do resultado textual
+    const resultado = document.getElementById("resultadoQuiz");
+    if (!resultado) return;
 
-    {
-        min: 10,
-        max: 10,
-        cor: "#06b6d4",
-        mensagem:
-            "Você parece estar se sentindo muito bem hoje! Compartilhe essa energia positiva.",
-        recomendacao:
-            "💡 Recomendação: Compartilhe esse sentimento com alguém que você gosta."
+    if (pontos === 3) {
+        resultado.textContent =
+            "Você acertou 3 de 3 perguntas. Parabéns! Você demonstrou bons conhecimentos sobre saúde mental.";
+    } else if (pontos >= 2) {
+        resultado.textContent =
+            `Você acertou ${pontos} de 3 perguntas. Muito bem! Continue aprendendo sobre saúde mental.`;
+    } else {
+        resultado.textContent =
+            `Você acertou ${pontos} de 3 perguntas. Continue explorando o conteúdo do Mente Saudável.`;
     }
 
-];
+    // Integração com o termômetro
+    const preenchimento = document.getElementById("preenchimento");
+    const valorNivel = document.getElementById("valorNivel");
+    const mensagemNivel = document.getElementById("mensagemNivel");
+    const recomendacao = document.getElementById("recomendacao");
 
+    // Converter pontos (0–3) para escala 0–10
+    const nivelConvertido = Math.round((pontos / 3) * 10);
 
-function atualizarTermometro() {
+    // Atualizar barra e textos
+    if (preenchimento && valorNivel && mensagemNivel && recomendacao) {
+        valorNivel.textContent = nivelConvertido;
+        preenchimento.style.width = `${nivelConvertido * 10}%`;
 
-    const nivelElemento =
-        document.getElementById("nivel");
-
-    const valorNivel =
-        document.getElementById("valorNivel");
-
-    const preenchimento =
-        document.getElementById("preenchimento");
-
-    const mensagemNivel =
-        document.getElementById("mensagemNivel");
-
-    const recomendacao =
-        document.getElementById("recomendacao");
-
-
-    if (
-        !nivelElemento ||
-        !valorNivel ||
-        !preenchimento ||
-        !mensagemNivel ||
-        !recomendacao
-    ) {
-        return;
+        // Definir mensagens conforme faixas
+        if (nivelConvertido <= 2) {
+            preenchimento.style.backgroundColor = "#ef4444";
+            mensagemNivel.textContent = "Parece que hoje está sendo um dia difícil. Procure conversar com alguém de confiança e cuide de você.";
+            recomendacao.textContent = "💡 Recomendação: Se possível, entre em contato com uma pessoa de confiança ou profissional de saúde. Você não está sozinho.";
+        } else if (nivelConvertido <= 4) {
+            preenchimento.style.backgroundColor = "#f97316";
+            mensagemNivel.textContent = "Talvez seja um bom momento para fazer uma pausa e observar como você está se sentindo.";
+            recomendacao.textContent = "💡 Recomendação: Experimente sair para tomar um ar fresco por 5 minutos e alongue o corpo.";
+        } else if (nivelConvertido <= 7) {
+            preenchimento.style.backgroundColor = "#eab308";
+            mensagemNivel.textContent = "Você está em um nível intermediário. Reserve um momento para perceber suas necessidades.";
+            recomendacao.textContent = "💡 Recomendação: Faça 3 respirações profundas e observe o que está ocupando sua mente no momento.";
+        } else if (nivelConvertido <= 9) {
+            preenchimento.style.backgroundColor = "#22c55e";
+            mensagemNivel.textContent = "Que bom! Aproveite esse momento e continue cuidando do seu bem-estar.";
+            recomendacao.textContent = "💡 Recomendação: Que tal anotar o que está fazendo você se sentir bem hoje para repetir amanhã?";
+        } else {
+            preenchimento.style.backgroundColor = "#21d406";
+            mensagemNivel.textContent = "Você parece estar se sentindo muito bem hoje! Compartilhe essa energia positiva.";
+            recomendacao.textContent = "💡 Recomendação: Compartilhe esse sentimento com alguém que você gosta.";
+        }
     }
-
-
-    const nivel =
-        Number(nivelElemento.value);
-
-
-    const faixaAtual =
-        faixas.find(
-            faixa =>
-                nivel >= faixa.min &&
-                nivel <= faixa.max
-        );
-
-
-    if (!faixaAtual) {
-        return;
-    }
-
-
-    valorNivel.textContent =
-        nivel;
-
-
-    preenchimento.style.width =
-        `${nivel * 10}%`;
-
-
-    preenchimento.style.backgroundColor =
-        faixaAtual.cor;
-
-
-    mensagemNivel.textContent =
-        faixaAtual.mensagem;
-
-
-    recomendacao.textContent =
-        faixaAtual.recomendacao;
-
 }
+
+// Conectar o quiz ao formulário
+document.getElementById("formQuiz").addEventListener("submit", verificarQuiz);
+
 
 
 /* =========================================================
@@ -251,102 +202,6 @@ function salvarRegistro() {
     alert("Registro salvo com sucesso!");
 
 }
-
-
-/* =========================================================
-   QUIZ
-========================================================= */
-
-function verificarQuiz(event) {
-
-    event.preventDefault();
-
-
-    let pontos = 0;
-
-
-    const resposta1 =
-        document.querySelector(
-            'input[name="pergunta1"]:checked'
-        );
-
-
-    const resposta2 =
-        document.querySelector(
-            'input[name="pergunta2"]:checked'
-        );
-
-
-    const resposta3 =
-        document.querySelector(
-            'input[name="pergunta3"]:checked'
-        );
-
-
-    if (
-        resposta1 &&
-        resposta1.value === "b"
-    ) {
-
-        pontos++;
-
-    }
-
-
-    if (
-        resposta2 &&
-        resposta2.value === "a"
-    ) {
-
-        pontos++;
-
-    }
-
-
-    if (
-        resposta3 &&
-        resposta3.value === "c"
-    ) {
-
-        pontos++;
-
-    }
-
-
-    const resultado =
-        document.getElementById(
-            "resultadoQuiz"
-        );
-
-
-    if (!resultado) {
-        return;
-    }
-
-
-    if (pontos === 3) {
-
-        resultado.textContent =
-            "Você acertou 3 de 3 perguntas. Parabéns! Você demonstrou bons conhecimentos sobre saúde mental.";
-
-    }
-
-    else if (pontos >= 2) {
-
-        resultado.textContent =
-            `Você acertou ${pontos} de 3 perguntas. Muito bem! Continue aprendendo sobre saúde mental.`;
-
-    }
-
-    else {
-
-        resultado.textContent =
-            `Você acertou ${pontos} de 3 perguntas. Continue explorando o conteúdo do Mente Saudável.`;
-
-    }
-
-}
-
 
 /* =========================================================
    MURAL VIRTUAL — PUBLICAÇÃO DE MENSAGENS
@@ -818,612 +673,65 @@ function iniciarMuralMotivacional() {
 
 }
 
-
 /* =========================================================
-   FUNDO ANIMADO
-   "RESPIRAÇÃO DA MENTE"
+   NOVO FUNDO ANIMADO
+   "MOVIMENTO SUAVE DA MENTE"
 ========================================================= */
 
 function iniciarFundoAnimado() {
 
-    const canvas =
-        document.createElement("canvas");
+    /* -----------------------------------------------------
+       CRIA O ELEMENTO DO FUNDO
+    ----------------------------------------------------- */
 
+    const fundo =
+        document.createElement("div");
 
-    canvas.id =
+    fundo.id =
         "fundoAnimado";
 
 
-    document.body.prepend(canvas);
+    document.body.prepend(fundo);
 
 
-    const ctx =
-        canvas.getContext("2d");
+    /* -----------------------------------------------------
+       VARIÁVEIS DA ANIMAÇÃO
+    ----------------------------------------------------- */
 
+    let mouseX = 0;
+    let mouseY = 0;
 
-    let largura = 0;
+    let movimentoX = 0;
+    let movimentoY = 0;
 
-    let altura = 0;
+    let escala = 1;
 
-    let particulas = [];
 
-    let quantidadeParticulas = 0;
-
-    let tempo = 0;
-
-
-    const mouse = {
-
-        x: null,
-
-        y: null,
-
-        raio: 130
-
-    };
-
-
-    const CORES = {
-
-        verde: "15, 118, 110",
-
-        amarelo: "234, 179, 8"
-
-    };
-
-
-    function definirQuantidadeParticulas() {
-
-        if (window.innerWidth <= 480) {
-
-            quantidadeParticulas = 22;
-
-        }
-
-        else if (window.innerWidth <= 768) {
-
-            quantidadeParticulas = 32;
-
-        }
-
-        else if (window.innerWidth <= 1200) {
-
-            quantidadeParticulas = 45;
-
-        }
-
-        else {
-
-            quantidadeParticulas = 60;
-
-        }
-
-    }
-
-
-    function criarParticula() {
-
-        return {
-
-            x:
-                Math.random() *
-                largura,
-
-            y:
-                Math.random() *
-                altura,
-
-            tamanho:
-                Math.random() *
-                2.4 +
-                0.7,
-
-            velocidadeX:
-                (Math.random() - 0.5) *
-                0.22,
-
-            velocidadeY:
-                (Math.random() - 0.5) *
-                0.22,
-
-            fase:
-                Math.random() *
-                Math.PI *
-                2,
-
-            velocidadeFase:
-                Math.random() *
-                0.015 +
-                0.005,
-
-            cor:
-                Math.random() > 0.72
-                    ? CORES.amarelo
-                    : CORES.verde,
-
-            brilho:
-                Math.random() *
-                0.35 +
-                0.25
-
-        };
-
-    }
-
-
-    function criarParticulas() {
-
-        particulas = [];
-
-
-        for (
-            let i = 0;
-            i < quantidadeParticulas;
-            i++
-        ) {
-
-            particulas.push(
-                criarParticula()
-            );
-
-        }
-
-    }
-
-
-    function ajustarCanvas() {
-
-        const escala =
-            window.devicePixelRatio ||
-            1;
-
-
-        largura =
-            window.innerWidth;
-
-
-        altura =
-            window.innerHeight;
-
-
-        canvas.width =
-            largura * escala;
-
-
-        canvas.height =
-            altura * escala;
-
-
-        canvas.style.width =
-            `${largura}px`;
-
-
-        canvas.style.height =
-            `${altura}px`;
-
-
-        ctx.setTransform(
-            escala,
-            0,
-            0,
-            escala,
-            0,
-            0
-        );
-
-
-        definirQuantidadeParticulas();
-
-        criarParticulas();
-
-    }
-
-
-    function atualizarParticulas() {
-
-        particulas.forEach(
-            particula => {
-
-                particula.x +=
-                    particula.velocidadeX;
-
-
-                particula.y +=
-                    particula.velocidadeY;
-
-
-                particula.y +=
-                    Math.sin(
-                        tempo * 0.01 +
-                        particula.fase
-                    ) * 0.08;
-
-
-                particula.x +=
-                    Math.cos(
-                        tempo * 0.008 +
-                        particula.fase
-                    ) * 0.05;
-
-
-                if (
-                    particula.x <
-                    -10
-                ) {
-
-                    particula.x =
-                        largura + 10;
-
-                }
-
-
-                if (
-                    particula.x >
-                    largura + 10
-                ) {
-
-                    particula.x = -10;
-
-                }
-
-
-                if (
-                    particula.y <
-                    -10
-                ) {
-
-                    particula.y =
-                        altura + 10;
-
-                }
-
-
-                if (
-                    particula.y >
-                    altura + 10
-                ) {
-
-                    particula.y = -10;
-
-                }
-
-
-                particula.fase +=
-                    particula.velocidadeFase;
-
-            }
-        );
-
-    }
-
-
-    function reagirAoMouse() {
-
-        if (
-            mouse.x === null ||
-            mouse.y === null
-        ) {
-            return;
-        }
-
-
-        particulas.forEach(
-            particula => {
-
-                const dx =
-                    particula.x -
-                    mouse.x;
-
-
-                const dy =
-                    particula.y -
-                    mouse.y;
-
-
-                const distancia =
-                    Math.sqrt(
-                        dx * dx +
-                        dy * dy
-                    );
-
-
-                if (
-                    distancia <
-                    mouse.raio &&
-                    distancia > 0
-                ) {
-
-                    const forca =
-                        (mouse.raio -
-                            distancia) /
-                        mouse.raio;
-
-
-                    particula.x +=
-                        (dx / distancia) *
-                        forca *
-                        0.35;
-
-
-                    particula.y +=
-                        (dy / distancia) *
-                        forca *
-                        0.35;
-
-                }
-
-            }
-        );
-
-    }
-
-
-    function desenharParticula(
-        particula
-    ) {
-
-        const brilho =
-            particula.brilho +
-            Math.sin(
-                particula.fase
-            ) *
-            0.12;
-
-
-        ctx.beginPath();
-
-
-        ctx.arc(
-            particula.x,
-            particula.y,
-            particula.tamanho,
-            0,
-            Math.PI * 2
-        );
-
-
-        ctx.fillStyle =
-            `rgba(${particula.cor}, ${brilho})`;
-
-
-        ctx.fill();
-
-    }
-
-
-    function desenharConexoes() {
-
-        const distanciaMaxima =
-            145;
-
-
-        for (
-            let i = 0;
-            i < particulas.length;
-            i++
-        ) {
-
-            for (
-                let j = i + 1;
-                j < particulas.length;
-                j++
-            ) {
-
-                const p1 =
-                    particulas[i];
-
-
-                const p2 =
-                    particulas[j];
-
-
-                const dx =
-                    p1.x - p2.x;
-
-
-                const dy =
-                    p1.y - p2.y;
-
-
-                const distancia =
-                    Math.sqrt(
-                        dx * dx +
-                        dy * dy
-                    );
-
-
-                if (
-                    distancia <
-                    distanciaMaxima
-                ) {
-
-                    const opacidade =
-                        (1 -
-                            distancia /
-                            distanciaMaxima) *
-                        0.11;
-
-
-                    ctx.beginPath();
-
-
-                    ctx.moveTo(
-                        p1.x,
-                        p1.y
-                    );
-
-
-                    ctx.lineTo(
-                        p2.x,
-                        p2.y
-                    );
-
-
-                    ctx.strokeStyle =
-                        `rgba(${CORES.verde}, ${opacidade})`;
-
-
-                    ctx.lineWidth = 1;
-
-
-                    ctx.stroke();
-
-                }
-
-            }
-
-        }
-
-    }
-
-
-    function desenharRespiracao() {
-
-        const respiracao =
-            (
-                Math.sin(
-                    tempo *
-                    0.006
-                ) +
-                1
-            ) / 2;
-
-
-        const centroX =
-            largura * 0.5;
-
-
-        const centroY =
-            altura * 0.52;
-
-
-        const raio =
-            100 +
-            respiracao *
-            100;
-
-
-        desenharOnda(
-            centroX,
-            centroY,
-            raio,
-            respiracao,
-            0.10
-        );
-
-
-        desenharOnda(
-            centroX,
-            centroY,
-            raio * 0.68,
-            respiracao,
-            0.06
-        );
-
-    }
-
-
-    function desenharOnda(
-        x,
-        y,
-        raio,
-        respiracao,
-        opacidade
-    ) {
-
-        ctx.beginPath();
-
-
-        ctx.arc(
-            x,
-            y,
-            raio,
-            0,
-            Math.PI * 2
-        );
-
-
-        ctx.strokeStyle =
-            `rgba(
-                ${CORES.verde},
-                ${opacidade *
-                (1 - respiracao * 0.3)}
-            )`;
-
-
-        ctx.lineWidth = 1;
-
-
-        ctx.stroke();
-
-    }
-
-
-    function desenhar() {
-
-        ctx.clearRect(
-            0,
-            0,
-            largura,
-            altura
-        );
-
-
-        tempo++;
-
-
-        atualizarParticulas();
-
-        reagirAoMouse();
-
-        desenharRespiracao();
-
-        desenharConexoes();
-
-
-        particulas.forEach(
-            particula => {
-
-                desenharParticula(
-                    particula
-                );
-
-            }
-        );
-
-
-        requestAnimationFrame(
-            desenhar
-        );
-
-    }
-
+    /* -----------------------------------------------------
+       MOVIMENTO DO MOUSE
+    ----------------------------------------------------- */
 
     window.addEventListener(
         "mousemove",
         evento => {
 
-            mouse.x =
-                evento.clientX;
+            mouseX =
+                (evento.clientX /
+                    window.innerWidth -
+                    0.5);
 
-            mouse.y =
-                evento.clientY;
-
-        }
-    );
-
-
-    window.addEventListener(
-        "mouseleave",
-        () => {
-
-            mouse.x = null;
-
-            mouse.y = null;
+            mouseY =
+                (evento.clientY /
+                    window.innerHeight -
+                    0.5);
 
         }
     );
 
+
+    /* -----------------------------------------------------
+       MOVIMENTO POR TOQUE
+    ----------------------------------------------------- */
 
     window.addEventListener(
         "touchmove",
@@ -1434,13 +742,20 @@ function iniciarFundoAnimado() {
                 evento.touches.length
             ) {
 
-                mouse.x =
-                    evento.touches[0]
-                        .clientX;
+                const toque =
+                    evento.touches[0];
 
-                mouse.y =
-                    evento.touches[0]
-                        .clientY;
+
+                mouseX =
+                    (toque.clientX /
+                        window.innerWidth -
+                        0.5);
+
+
+                mouseY =
+                    (toque.clientY /
+                        window.innerHeight -
+                        0.5);
 
             }
 
@@ -1451,43 +766,67 @@ function iniciarFundoAnimado() {
     );
 
 
-    window.addEventListener(
-        "touchend",
-        () => {
+    /* -----------------------------------------------------
+       ANIMAÇÃO PRINCIPAL
+    ----------------------------------------------------- */
 
-            mouse.x = null;
+    function animarFundo() {
 
-            mouse.y = null;
+        /*
+         * Movimento suave do fundo
+         */
 
-        }
-    );
-
-
-    let redimensionando;
-
-
-    window.addEventListener(
-        "resize",
-        () => {
-
-            clearTimeout(
-                redimensionando
-            );
+        movimentoX +=
+            (mouseX * 12 -
+                movimentoX) *
+            0.025;
 
 
-            redimensionando =
-                setTimeout(
-                    ajustarCanvas,
-                    150
-                );
-
-        }
-    );
+        movimentoY +=
+            (mouseY * 8 -
+                movimentoY) *
+            0.025;
 
 
-    ajustarCanvas();
+        /*
+         * Efeito de respiração
+         */
 
-    desenhar();
+        const tempo =
+            Date.now() * 0.001;
+
+
+        escala =
+            1 +
+            Math.sin(
+                tempo * 0.18
+            ) * 0.012;
+
+
+        /*
+         * Aplicação da animação
+         */
+
+        fundo.style.transform =
+            `translate(
+                ${movimentoX}px,
+                ${movimentoY}px
+            )
+            scale(${escala})`;
+
+
+        requestAnimationFrame(
+            animarFundo
+        );
+
+    }
+
+
+    /* -----------------------------------------------------
+       INICIA A ANIMAÇÃO
+    ----------------------------------------------------- */
+
+    animarFundo();
 
 }
 
@@ -1600,3 +939,7 @@ document.addEventListener(
 
     }
 );
+
+
+
+
