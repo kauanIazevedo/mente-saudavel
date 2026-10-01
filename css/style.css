@@ -1,8 +1,8 @@
 /* =========================================================
-   MENTE SAUDÁVEL
-   CSS RECONSTRUÍDO
-   Compatível com o HTML corrigido
+   FONTES
 ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Montserrat+Alternates:wght@500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
 
 
 /* =========================================================
@@ -22,7 +22,13 @@ html {
 body {
     min-height: 100vh;
 
-    background: #e0dfde;
+    background-color: #ffffff;
+
+    background-image: url("../img/fundo-mente-saudavel.png.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 
     color: #334155;
 
@@ -59,41 +65,29 @@ a {
 
 p {
     color: #10B981;
-
     font-size: 18px;
-
     line-height: 1.7;
-
     margin-bottom: 20px;
 }
 
 h2 {
     color: #0F766E;
-
     font-size: 42px;
-
     line-height: 1.2;
-
     margin-bottom: 20px;
 }
 
 h3 {
     color: #0F766E;
-
     font-size: 28px;
-
     line-height: 1.3;
-
     margin-bottom: 15px;
 }
 
 .hr {
     width: min(1000px, calc(100% - 40px));
-
     margin: 50px auto;
-
     border: 0;
-
     border-top: 1px solid rgba(15, 118, 110, 0.20);
 }
 
@@ -104,59 +98,72 @@ h3 {
 
 .cabecalho {
     width: 100%;
-
-    padding: 45px 20px 25px;
-
+    padding: 45px 20px 30px;
     text-align: center;
 }
 
 
-/* Área do logo */
+/* =========================================================
+   ÁREA DO LOGO
+========================================================= */
 
 .container-logo {
     max-width: 1100px;
-
     margin: 0 auto;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
-    gap: 18px;
+    gap: 20px;
 }
 
 
-/* Imagem */
+/* =========================================================
+   IMAGEM
+========================================================= */
 
 .logo-imagem {
     width: 85px;
-
     height: 85px;
 
-    object-fit: cover;
+    object-fit: contain;
 
     border-radius: 18px;
 
-    background: #ffffff;
+    background: transparent;
 
     box-shadow:
         0 5px 18px rgba(0, 0, 0, 0.10);
 }
 
 
-/* Texto do logo */
+/* =========================================================
+   BLOCO DE TEXTO DO LOGO
+========================================================= */
 
 .logo-texto {
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start;
+
     text-align: left;
 }
 
 
-/* Título */
+/* =========================================================
+   TÍTULO
+========================================================= */
 
 .titulo-principal {
     margin: 0;
+
+    display: flex;
+
+    align-items: baseline;
+
+    gap: 8px;
 
     font-size: 58px;
 
@@ -165,27 +172,99 @@ h3 {
     font-weight: 700;
 }
 
+
+/* =========================================================
+   "MENTE"
+========================================================= */
+
 .fonte-mente {
     color: #0F766E;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 }
+
+
+/* =========================================================
+   "SAUDÁVEL"
+========================================================= */
 
 .fonte-saudavel {
     color: #EAB308;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-style: italic;
 }
 
 
-/* Subtítulo */
+/* =========================================================
+   EQUILÍBRIO
+========================================================= */
 
 .subtitulo {
     margin: 8px 0 0;
 
     color: #EAB308;
 
-    font-size: 21px;
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
 
-    font-weight: 500;
+    font-size: 22px;
 
-    letter-spacing: 0.5px;
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    line-height: 1;
+
+    text-align: center;
+
+    width: 100%;
+}
+.subtitulo-frase {
+    margin: 0 0 35px 15px;
+
+    color: #D99A00;
+
+    font-size: 20px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+/* =========================================================
+   FONTES DO LOGO
+========================================================= */
+
+.fonte-mente {
+    font-family: 'DM Serif Display', serif;
+    color: #096C6C;
+}
+
+.fonte-saudavel {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: #F1C338;
+}
+
+
+/* Subtítulo */
+
+.subtitulo {
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #d6a100;
+    margin-top: -5px;
 }
 
 
@@ -195,21 +274,15 @@ h3 {
 
 .menu-navegacao {
     width: min(1100px, calc(100% - 20px));
-
     margin: 35px auto 55px;
-
     padding: 14px 20px;
 
     background: #ffffff;
-
     border-radius: 50px;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
     flex-wrap: wrap;
 
     gap: 8px;
@@ -218,22 +291,17 @@ h3 {
         0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
-
 .menu-link {
     position: relative;
 
     display: inline-flex;
-
     align-items: center;
-
     justify-content: center;
 
     padding: 10px 18px;
 
     color: #0F766E;
-
     font-size: 16px;
-
     font-weight: 600;
 
     border-radius: 30px;
@@ -244,12 +312,9 @@ h3 {
         transform 0.25s ease;
 }
 
-
 .menu-link:hover {
     color: #ffffff;
-
     background: #0F766E;
-
     transform: translateY(-2px);
 }
 
@@ -264,11 +329,8 @@ main {
 
 main > section {
     width: min(1100px, calc(100% - 40px));
-
     margin-left: auto;
-
     margin-right: auto;
-
     margin-bottom: 50px;
 }
 
@@ -279,11 +341,9 @@ main > section {
 
 .secao-hero {
     min-height: 430px;
-
     padding: 70px 60px;
 
     display: flex;
-
     align-items: center;
 
     border-radius: 28px;
@@ -299,34 +359,23 @@ main > section {
         0 8px 25px rgba(0, 0, 0, 0.07);
 }
 
-
 .hero-conteudo {
     width: 100%;
-
     max-width: 900px;
-
     margin: 0 auto;
 }
 
-
 .hero-titulo {
     margin-bottom: 20px;
-
     color: #0F766E;
-
     font-size: 52px;
-
     font-weight: 700;
 }
 
-
 .hero-texto {
     max-width: 850px;
-
     color: #475569;
-
     font-size: 20px;
-
     line-height: 1.8;
 }
 
@@ -337,29 +386,23 @@ main > section {
     margin-top: 35px;
 
     display: flex;
-
     flex-wrap: wrap;
 
     gap: 18px;
 }
 
-
 .hero-botao-um,
 .hero-botao-dois {
     display: inline-flex;
-
     align-items: center;
-
     justify-content: center;
 
     min-height: 52px;
-
     padding: 14px 28px;
 
     border-radius: 50px;
 
     font-size: 17px;
-
     font-weight: 700;
 
     transition:
@@ -367,20 +410,15 @@ main > section {
         box-shadow 0.25s ease;
 }
 
-
 .hero-botao-um {
     background: #EAB308;
-
     color: #0F766E;
 }
 
-
 .hero-botao-dois {
     background: #0F766E;
-
     color: #ffffff;
 }
-
 
 .hero-botao-um:hover,
 .hero-botao-dois:hover {
@@ -396,30 +434,24 @@ main > section {
 ========================================================= */
 
 .mural {
-    width: min(1000px, calc(100% - 40px));
-
+    width: min(1100px, calc(100% - 40px));
     margin-left: auto;
-
     margin-right: auto;
 
     padding: 40px 30px;
 
     background: #B3EBF2;
-
     border-radius: 24px;
 
     box-shadow:
         0 5px 18px rgba(0, 0, 0, 0.07);
 }
 
-
 .mural-titulo {
     margin-bottom: 28px;
 
     color: #096C6C;
-
     font-size: 32px;
-
     text-align: center;
 }
 
@@ -428,9 +460,7 @@ main > section {
 
 .carrosel {
     position: relative;
-
     width: 100%;
-
     overflow: hidden;
 }
 
@@ -439,7 +469,6 @@ main > section {
 
 .carrosel-track {
     display: flex;
-
     gap: 15px;
 
     transition:
@@ -447,55 +476,48 @@ main > section {
 }
 
 
-/* Cards */
+/* =========================================================
+   CARDS DO MURAL
+========================================================= */
 
 .mensagem {
     flex: 0 0 calc(33.333% - 10px);
 
-    min-height: 180px;
+    /* Todos os cartões terão a mesma altura */
+    height: 225px;
+    min-height: 225px;
 
     padding: 22px;
 
     display: flex;
-
     flex-direction: column;
-
     justify-content: space-between;
 
     background: #ffffff;
-
     border-radius: 14px;
 
     box-shadow:
         0 3px 10px rgba(0, 0, 0, 0.08);
 }
 
-
 .texto {
     color: #334155;
-
     font-size: 16px;
-
     line-height: 1.6;
 }
-
 
 .rodape {
     margin-top: 20px;
 
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
 
     gap: 10px;
 
     color: #64748B;
-
     font-size: 14px;
 }
-
 
 .icone {
     font-size: 20px;
@@ -508,32 +530,24 @@ main > section {
     margin-top: 25px;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
     gap: 10px;
 }
 
-
 .btn {
     width: 40px;
-
     height: 40px;
 
     border: 0;
-
     border-radius: 50%;
 
     background: #096C6C;
-
     color: #ffffff;
 
     display: inline-flex;
-
     align-items: center;
-
     justify-content: center;
 
     font-size: 18px;
@@ -543,28 +557,21 @@ main > section {
         background-color 0.25s ease;
 }
 
-
 .btn:hover {
     background: #0F766E;
-
     transform: scale(1.08);
 }
 
-
 .dot {
     width: 10px;
-
     height: 10px;
 
     padding: 0;
-
     border: 0;
-
     border-radius: 50%;
 
     background: #9CA3AF;
 }
-
 
 .dot.active {
     background: #096C6C;
@@ -576,21 +583,16 @@ main > section {
 ========================================================= */
 
 .secao-sobre {
-    width: min(1000px, calc(100% - 40px));
-
+    width: min(1100px, calc(100% - 40px));
     margin-left: auto;
-
     margin-right: auto;
 }
-
 
 .sobre-titulo {
     margin-bottom: 28px;
 
     color: #096C6C;
-
     font-size: 38px;
-
     text-align: center;
 }
 
@@ -599,13 +601,11 @@ main > section {
 
 .carrossel-container {
     position: relative;
-
     width: 100%;
 
     padding: 45px 55px 70px;
 
     background: #ffffff;
-
     border-radius: 22px;
 
     box-shadow:
@@ -617,9 +617,7 @@ main > section {
 
 .carrossel-slides {
     width: 100%;
-
     overflow: hidden;
-
     border-radius: 15px;
 }
 
@@ -630,7 +628,6 @@ main > section {
     width: 100%;
 
     display: flex;
-
     align-items: center;
 
     gap: 35px;
@@ -639,21 +636,17 @@ main > section {
         aparecerSlide 0.4s ease;
 }
 
-
 @keyframes aparecerSlide {
 
     from {
         opacity: 0;
-
         transform: translateX(15px);
     }
 
     to {
         opacity: 1;
-
         transform: translateX(0);
     }
-
 }
 
 
@@ -668,20 +661,16 @@ main > section {
 
 .carrossel-imagem-wrapper {
     flex: 0 1 42%;
-
     min-width: 280px;
 }
 
-
 .carrossel-img {
     width: 100%;
-
     height: 300px;
 
     display: block;
 
     object-fit: cover;
-
     border-radius: 15px;
 }
 
@@ -690,27 +679,21 @@ main > section {
 
 .carrossel-conteudo {
     flex: 1;
-
     min-width: 0;
 }
-
 
 .carrossel-slide-titulo {
     margin-bottom: 18px;
 
     color: #096C6C;
-
     font-size: 30px;
 }
-
 
 .carrossel-texto {
     margin-bottom: 14px;
 
     color: #475569;
-
     font-size: 17px;
-
     line-height: 1.7;
 }
 
@@ -719,31 +702,24 @@ main > section {
 
 .carrossel-btn {
     position: absolute;
-
     top: 50%;
 
     width: 44px;
-
     height: 44px;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
     transform: translateY(-50%);
 
     border: none;
-
     border-radius: 50%;
 
     background: #F1C338;
-
     color: #096C6C;
 
     font-size: 20px;
-
     font-weight: bold;
 
     box-shadow:
@@ -757,10 +733,8 @@ main > section {
         color 0.25s ease;
 }
 
-
 .carrossel-btn:hover {
     background: #096C6C;
-
     color: #ffffff;
 
     transform:
@@ -768,11 +742,9 @@ main > section {
         scale(1.08);
 }
 
-
 .carrossel-container .btn-anterior {
     left: 10px;
 }
-
 
 .carrossel-container .btn-proximo {
     right: 10px;
@@ -783,32 +755,24 @@ main > section {
 
 .carrossel-indicadores {
     position: absolute;
-
     bottom: 25px;
-
     left: 0;
 
     width: 100%;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
     gap: 8px;
 }
 
-
 .indicador {
     width: 12px;
-
     height: 12px;
 
     padding: 0;
-
     border: 0;
-
     border-radius: 50%;
 
     background: #CBD5E1;
@@ -820,12 +784,9 @@ main > section {
         background-color 0.25s ease;
 }
 
-
 .indicador.ativo {
     width: 25px;
-
     border-radius: 10px;
-
     background: #096C6C;
 }
 
@@ -836,30 +797,22 @@ main > section {
 
 .curiosidades {
     width: 100%;
-
     padding: 70px 20px;
-
     box-sizing: border-box;
 }
 
-
 .curiosidades-container {
-    width: min(1100px, 100%);
-
+    width: min(1100px, calc(100% - 40px));
     margin: 0 auto;
 }
 
 
-/* =========================================================
-   CABEÇALHO
-========================================================= */
+/* Cabeçalho */
 
 .curiosidades-cabecalho {
     margin-bottom: 45px;
-
     text-align: center;
 }
-
 
 .curiosidades-tag,
 .video-tag {
@@ -868,37 +821,26 @@ main > section {
     margin-bottom: 12px;
 
     color: #10B981;
-
     font-size: 13px;
-
     font-weight: 700;
-
     letter-spacing: 2px;
 }
-
 
 .curiosidades-cabecalho h2 {
     margin: 0 0 15px;
 
     color: #0F766E;
-
     font-size: 42px;
-
     line-height: 1.2;
-
     font-weight: 700;
 }
 
-
 .curiosidades-cabecalho p {
     max-width: 700px;
-
     margin: 0 auto;
 
     color: #475569;
-
     font-size: 17px;
-
     line-height: 1.7;
 }
 
@@ -925,7 +867,6 @@ main > section {
     overflow: hidden;
 
     background: #ffffff;
-
     border-radius: 20px;
 
     box-shadow:
@@ -935,7 +876,6 @@ main > section {
         transform 0.3s ease,
         box-shadow 0.3s ease;
 }
-
 
 .curiosidade-card:hover {
     transform: translateY(-7px);
@@ -953,16 +893,13 @@ main > section {
     position: relative;
 
     width: 100%;
-
     height: 210px;
 
     overflow: hidden;
 }
 
-
 .curiosidade-imagem img {
     width: 100%;
-
     height: 100%;
 
     display: block;
@@ -972,7 +909,6 @@ main > section {
     transition:
         transform 0.5s ease;
 }
-
 
 .curiosidade-card:hover
 .curiosidade-imagem img {
@@ -988,27 +924,21 @@ main > section {
     position: absolute;
 
     top: 15px;
-
     right: 15px;
 
     width: 42px;
-
     height: 42px;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
     border-radius: 50%;
 
     background: rgba(15, 118, 110, 0.92);
-
     color: #ffffff;
 
     font-size: 13px;
-
     font-weight: 700;
 }
 
@@ -1021,34 +951,25 @@ main > section {
     padding: 25px;
 }
 
-
 .curiosidade-icone {
     display: block;
-
     margin-bottom: 10px;
-
     font-size: 28px;
 }
-
 
 .curiosidade-conteudo h3 {
     margin: 0 0 12px;
 
     color: #0F766E;
-
     font-size: 21px;
-
     line-height: 1.3;
 }
-
 
 .curiosidade-conteudo p {
     margin: 0;
 
     color: #475569;
-
     font-size: 15px;
-
     line-height: 1.7;
 }
 
@@ -1059,7 +980,6 @@ main > section {
 
 .curiosidade-video {
     margin-top: 45px;
-
     padding: 35px;
 
     display: grid;
@@ -1072,32 +992,25 @@ main > section {
     gap: 40px;
 
     background: #ffffff;
-
     border-radius: 24px;
 
     box-shadow:
         0 8px 25px rgba(0, 0, 0, 0.08);
 }
 
-
 .video-cabecalho h3 {
     margin: 0 0 15px;
 
     color: #0F766E;
-
     font-size: 28px;
-
     line-height: 1.3;
 }
-
 
 .video-cabecalho p {
     margin: 0;
 
     color: #475569;
-
     font-size: 16px;
-
     line-height: 1.7;
 }
 
@@ -1108,7 +1021,6 @@ main > section {
 
 .video-wrapper {
     width: 100%;
-
     overflow: hidden;
 
     border-radius: 17px;
@@ -1119,14 +1031,12 @@ main > section {
         0 6px 20px rgba(0, 0, 0, 0.12);
 }
 
-
 .video-wrapper video {
     width: 100%;
 
     display: block;
 
     aspect-ratio: 16 / 9;
-
     object-fit: cover;
 }
 
@@ -1142,13 +1052,10 @@ main > section {
             repeat(2, 1fr);
     }
 
-
     .curiosidade-video {
         grid-template-columns: 1fr;
-
         gap: 25px;
     }
-
 }
 
 
@@ -1162,52 +1069,40 @@ main > section {
         padding: 50px 15px;
     }
 
-
     .curiosidades-cabecalho {
         margin-bottom: 30px;
     }
-
 
     .curiosidades-cabecalho h2 {
         font-size: 32px;
     }
 
-
     .curiosidades-cabecalho p {
         font-size: 15px;
     }
 
-
     .curiosidades-grid {
         grid-template-columns: 1fr;
-
         gap: 20px;
     }
-
 
     .curiosidade-imagem {
         height: 220px;
     }
 
-
     .curiosidade-video {
         margin-top: 30px;
-
         padding: 22px;
-
         border-radius: 20px;
     }
-
 
     .video-cabecalho h3 {
         font-size: 23px;
     }
 
-
     .video-cabecalho p {
         font-size: 15px;
     }
-
 }
 
 
@@ -1217,60 +1112,46 @@ main > section {
 
 #quiz {
     width: min(1100px, calc(100% - 40px));
-
     margin: 0 auto 50px;
 }
 
 
-/* =========================================================
-   TÍTULO
-========================================================= */
+/* Título */
 
 .quiz-container h2 {
     margin: 0 0 38px;
 
     color: #0F766E;
-
     font-size: 42px;
-
     line-height: 1.2;
-
     font-weight: 700;
 
     text-align: center;
 }
 
 
-/* =========================================================
-   FORMULÁRIO
-========================================================= */
+/* Formulário */
 
 .quiz-container form {
     width: 100%;
 
     display: flex;
-
     flex-direction: column;
 
     gap: 28px;
 }
 
 
-/* =========================================================
-   CARTÃO DA PERGUNTA
-========================================================= */
+/* Cartão da pergunta */
 
 .quiz-container fieldset {
     width: 100%;
-
     min-width: 0;
 
     margin: 0;
-
     padding: 28px 35px 30px;
 
     border: none;
-
     border-radius: 22px;
 
     background: #ffffff;
@@ -1280,42 +1161,32 @@ main > section {
 }
 
 
-/* =========================================================
-   TÍTULO DA PERGUNTA
-========================================================= */
+/* Título da pergunta */
 
 .quiz-pergunta {
     width: 100%;
 
     margin: 0 0 22px;
-
     padding: 0;
 
     color: #0F766E;
 
     font-size: 21px;
-
     line-height: 1.4;
-
     font-weight: 700;
 }
 
 
-/* =========================================================
-   ALTERNATIVAS
-========================================================= */
+/* Alternativas */
 
 .quiz-container fieldset label {
     width: 100%;
-
     min-height: 42px;
 
     margin: 0;
-
     padding: 7px 0;
 
     display: flex;
-
     align-items: center;
 
     gap: 12px;
@@ -1323,7 +1194,6 @@ main > section {
     color: #475569;
 
     font-size: 17px;
-
     line-height: 1.5;
 
     cursor: pointer;
@@ -1333,32 +1203,21 @@ main > section {
         transform 0.2s ease;
 }
 
-
-/* Texto da alternativa */
-
 .quiz-container fieldset label span {
     display: block;
-
     flex: 1;
 }
 
-
-/* Efeito ao passar o mouse */
-
 .quiz-container fieldset label:hover {
     color: #0F766E;
-
     transform: translateX(3px);
 }
 
 
-/* =========================================================
-   RADIO
-========================================================= */
+/* Radio */
 
 .quiz-container fieldset input[type="radio"] {
     width: 19px;
-
     height: 19px;
 
     margin: 0;
@@ -1366,45 +1225,35 @@ main > section {
     flex: 0 0 auto;
 
     accent-color: #0F766E;
-
     cursor: pointer;
 }
 
 
-/* =========================================================
-   ALTERNATIVA SELECIONADA
-========================================================= */
+/* Alternativa selecionada */
 
 .quiz-container fieldset label:has(
     input[type="radio"]:checked
 ) {
     color: #0F766E;
-
     font-weight: 600;
 }
 
 
-/* =========================================================
-   BOTÃO
-========================================================= */
+/* Botão */
 
 .quiz-container .botao-verde {
     align-self: center;
 
     margin: 5px 0 0;
-
     padding: 14px 34px;
 
     border: none;
-
     border-radius: 50px;
 
     background: #0F766E;
-
     color: #ffffff;
 
     font-size: 17px;
-
     font-weight: 700;
 
     cursor: pointer;
@@ -1418,7 +1267,6 @@ main > section {
         box-shadow 0.25s ease;
 }
 
-
 .quiz-container .botao-verde:hover {
     background: #096C6C;
 
@@ -1429,25 +1277,20 @@ main > section {
 }
 
 
-/* =========================================================
-   RESULTADO
-========================================================= */
+/* Resultado */
 
 #resultadoQuiz {
     width: 100%;
 
     margin: 15px 0 0;
-
     padding: 20px;
 
     border-radius: 16px;
 
     background: #F0FDF4;
-
     color: #0F766E;
 
     font-size: 18px;
-
     font-weight: 600;
 
     text-align: center;
@@ -1455,142 +1298,28 @@ main > section {
 
 
 /* =========================================================
-   TABLET
-========================================================= */
-
-@media (max-width: 768px) {
-
-    #quiz {
-        width: calc(100% - 30px);
-    }
-
-
-    .quiz-container h2 {
-        margin-bottom: 30px;
-
-        font-size: 34px;
-    }
-
-
-    .quiz-container form {
-        gap: 20px;
-    }
-
-
-    .quiz-container fieldset {
-        padding: 25px 22px 24px;
-
-        border-radius: 18px;
-    }
-
-
-    .quiz-pergunta {
-        margin-bottom: 18px;
-
-        font-size: 19px;
-    }
-
-
-    .quiz-container fieldset label {
-        font-size: 16px;
-    }
-
-}
-
-
-/* =========================================================
-   CELULAR
-========================================================= */
-
-@media (max-width: 480px) {
-
-    #quiz {
-        width: calc(100% - 24px);
-    }
-
-
-    .quiz-container h2 {
-        margin-bottom: 25px;
-
-        font-size: 29px;
-    }
-
-
-    .quiz-container form {
-        gap: 16px;
-    }
-
-
-    .quiz-container fieldset {
-        padding: 22px 18px 20px;
-
-        border-radius: 16px;
-    }
-
-
-    .quiz-pergunta {
-        margin-bottom: 16px;
-
-        font-size: 17px;
-
-        line-height: 1.4;
-    }
-
-
-    .quiz-container fieldset label {
-        min-height: 40px;
-
-        padding: 6px 0;
-
-        gap: 10px;
-
-        font-size: 15px;
-    }
-
-
-    .quiz-container fieldset input[type="radio"] {
-        width: 18px;
-
-        height: 18px;
-    }
-
-
-    .quiz-container .botao-verde {
-        width: 100%;
-
-        padding: 13px 20px;
-    }
-
-}
-
-/* =========================================================
-   11. TERMÔMETRO
+   TERMÔMETRO
 ========================================================= */
 
 .termometro-container {
     padding: 45px;
 
     background: #ffffff;
-
     border-radius: 22px;
 
     box-shadow:
         0 5px 18px rgba(0, 0, 0, 0.07);
 }
 
-
 .termometro-titulo {
     margin-bottom: 12px;
 
     font-size: 34px;
-
     text-align: center;
 }
 
-
 .termometro-container > p {
     color: #475569;
-
     text-align: center;
 }
 
@@ -1599,14 +1328,11 @@ main > section {
 
 .slider-container {
     position: relative;
-
     margin: 45px 0 25px;
 }
 
-
 #nivel {
     width: 100%;
-
     height: 8px;
 
     appearance: none;
@@ -1616,20 +1342,16 @@ main > section {
     background: #D1D5DB;
 
     outline: none;
-
     cursor: pointer;
 }
 
-
 #nivel::-webkit-slider-thumb {
     width: 24px;
-
     height: 24px;
 
     appearance: none;
 
     border: 4px solid #ffffff;
-
     border-radius: 50%;
 
     background: #0F766E;
@@ -1638,14 +1360,11 @@ main > section {
         0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-
 #nivel::-moz-range-thumb {
     width: 24px;
-
     height: 24px;
 
     border: 4px solid #ffffff;
-
     border-radius: 50%;
 
     background: #0F766E;
@@ -1659,15 +1378,12 @@ main > section {
 
 .valor-atual {
     position: absolute;
-
     top: -38px;
-
     right: 0;
 
     color: #0F766E;
 
     font-size: 22px;
-
     font-weight: 700;
 }
 
@@ -1676,7 +1392,6 @@ main > section {
 
 .barra-termometro {
     width: 100%;
-
     height: 24px;
 
     margin: 25px 0;
@@ -1684,14 +1399,11 @@ main > section {
     overflow: hidden;
 
     background: #E5E7EB;
-
     border-radius: 12px;
 }
 
-
 .preenchimento-termometro {
     width: 50%;
-
     height: 100%;
 
     border-radius: 12px;
@@ -1708,9 +1420,7 @@ main > section {
 
 .faixas-legenda {
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
 
     gap: 10px;
@@ -1718,7 +1428,6 @@ main > section {
     margin-bottom: 30px;
 
     color: #64748B;
-
     font-size: 14px;
 }
 
@@ -1727,7 +1436,6 @@ main > section {
 
 .card-mensagem {
     margin: 20px 0;
-
     padding: 25px;
 
     background: #F8FAFC;
@@ -1738,7 +1446,6 @@ main > section {
         5px solid #0F766E;
 }
 
-
 .card-mensagem p {
     margin-bottom: 0;
 
@@ -1747,17 +1454,14 @@ main > section {
     font-size: 17px;
 }
 
-
 .recomendacao {
     margin-top: 18px;
-
     padding-top: 18px;
 
     border-top:
         1px solid #E2E8F0;
 
     color: #475569;
-
     font-size: 15px;
 }
 
@@ -1770,15 +1474,12 @@ main > section {
     padding: 15px;
 
     border: none;
-
     border-radius: 12px;
 
     background: #0F766E;
-
     color: #ffffff;
 
     font-size: 16px;
-
     font-weight: 700;
 
     cursor: pointer;
@@ -1788,10 +1489,8 @@ main > section {
         transform 0.25s ease;
 }
 
-
 .botao-salvar:hover {
     background: #096C6C;
-
     transform: translateY(-2px);
 }
 
@@ -1800,39 +1499,30 @@ main > section {
 
 .historico {
     margin-top: 30px;
-
     padding-top: 25px;
 
     border-top:
         1px solid #E5E7EB;
 }
 
-
 .historico h4 {
     margin-bottom: 15px;
 
     color: #0F766E;
-
     font-size: 19px;
 }
 
-
 #listaHistorico {
     display: flex;
-
     flex-direction: column;
-
     gap: 8px;
 }
 
-
 #listaHistorico p {
     margin: 0;
-
     padding: 10px 14px;
 
     color: #475569;
-
     background: #F8FAFC;
 
     border-radius: 8px;
@@ -1849,11 +1539,9 @@ main > section {
     width: min(1100px, calc(100% - 40px));
 
     margin: 40px auto 50px;
-
     padding: 45px 55px;
 
     background: #ffffff;
-
     border-radius: 24px;
 
     box-shadow:
@@ -1863,9 +1551,7 @@ main > section {
 }
 
 
-/* =========================================================
-   TÍTULO
-========================================================= */
+/* Título */
 
 #mural-mensagem h2 {
     margin: 0 0 20px;
@@ -1873,16 +1559,12 @@ main > section {
     color: #0F766E;
 
     font-size: 38px;
-
     line-height: 1.2;
-
     font-weight: 700;
 }
 
 
-/* =========================================================
-   TEXTO
-========================================================= */
+/* Texto */
 
 #mural-mensagem > p {
     margin: 0 0 32px;
@@ -1890,62 +1572,49 @@ main > section {
     color: #10B981;
 
     font-size: 17px;
-
     line-height: 1.6;
 }
 
 
-/* =========================================================
-   FORMULÁRIO
-========================================================= */
+/* Formulário */
 
 #mural-mensagem .form-mensagem {
     width: 100%;
-
     max-width: 900px;
 
     margin: 0 auto;
 
     display: flex;
-
     flex-direction: column;
 
     gap: 24px;
 }
 
 
-/* =========================================================
-   GRUPOS
-========================================================= */
+/* Grupos */
 
 #mural-mensagem .input-nome,
 #mural-mensagem .input-mensagem {
     width: 100%;
 
     display: flex;
-
     flex-direction: column;
 
     gap: 9px;
 }
 
 
-/* =========================================================
-   LABELS
-========================================================= */
+/* Labels */
 
 #mural-mensagem label {
     color: #0F766E;
 
     font-size: 15px;
-
     font-weight: 700;
 }
 
 
-/* =========================================================
-   CAMPO DE TEXTO
-========================================================= */
+/* Campo de texto */
 
 #mural-mensagem input,
 #mural-mensagem textarea {
@@ -1954,15 +1623,12 @@ main > section {
     box-sizing: border-box;
 
     border: 1px solid #CBD5E1;
-
     border-radius: 13px;
 
     background: #F8FAFC;
-
     color: #334155;
 
     font-family: inherit;
-
     font-size: 16px;
 
     outline: none;
@@ -1973,31 +1639,24 @@ main > section {
         background-color 0.25s ease;
 }
 
-
 #mural-mensagem input {
     height: 56px;
-
     padding: 0 18px;
 }
 
-
 #mural-mensagem textarea {
     min-height: 150px;
-
     padding: 16px 18px;
 
     resize: vertical;
 }
 
 
-/* =========================================================
-   FOCO
-========================================================= */
+/* Foco */
 
 #mural-mensagem input:focus,
 #mural-mensagem textarea:focus {
     border-color: #0F766E;
-
     background: #ffffff;
 
     box-shadow:
@@ -2005,29 +1664,22 @@ main > section {
 }
 
 
-/* =========================================================
-   BOTÃO
-========================================================= */
+/* Botão */
 
 #mural-mensagem .botao-publicar {
     align-self: center;
 
     margin-top: 4px;
-
     padding: 15px 30px;
 
     border: none;
-
     border-radius: 50px;
 
     background: #0F766E;
-
     color: #ffffff;
 
     font-family: inherit;
-
     font-size: 16px;
-
     font-weight: 700;
 
     cursor: pointer;
@@ -2041,7 +1693,6 @@ main > section {
         box-shadow 0.25s ease;
 }
 
-
 #mural-mensagem .botao-publicar:hover {
     background: #0B635D;
 
@@ -2052,17 +1703,13 @@ main > section {
 }
 
 
-/* =========================================================
-   ÁREA DAS MENSAGENS PUBLICADAS
-========================================================= */
+/* Área das mensagens publicadas */
 
 #muralMensagens {
     width: 100%;
-
     max-width: 900px;
 
     margin: 35px auto 0 !important;
-
     padding-top: 25px !important;
 
     border-top: 1px solid #E2E8F0 !important;
@@ -2072,80 +1719,6 @@ main > section {
 
 
 /* =========================================================
-   TABLET
-========================================================= */
-
-@media (max-width: 768px) {
-
-    #mural-mensagem {
-        width: calc(100% - 30px);
-
-        padding: 35px 25px;
-
-        border-radius: 20px;
-    }
-
-
-    #mural-mensagem h2 {
-        font-size: 32px;
-    }
-
-
-    #mural-mensagem > p {
-        font-size: 16px;
-    }
-
-}
-
-
-/* =========================================================
-   CELULAR
-========================================================= */
-
-@media (max-width: 480px) {
-
-    #mural-mensagem {
-        width: calc(100% - 24px);
-
-        margin-top: 25px;
-
-        padding: 28px 18px;
-
-        border-radius: 17px;
-    }
-
-
-    #mural-mensagem h2 {
-        font-size: 28px;
-
-        text-align: center;
-    }
-
-
-    #mural-mensagem > p {
-        text-align: center;
-
-        font-size: 15px;
-    }
-
-
-    #mural-mensagem input {
-        height: 52px;
-    }
-
-
-    #mural-mensagem textarea {
-        min-height: 130px;
-    }
-
-
-    #mural-mensagem .botao-publicar {
-        width: 100%;
-    }
-
-}
-
-/* =========================================================
    13. RODAPÉ
 ========================================================= */
 
@@ -2153,13 +1726,10 @@ footer {
     width: 100%;
 
     margin-top: 70px;
-
     padding: 35px 20px;
 
     display: flex;
-
     flex-direction: column;
-
     align-items: center;
 
     background: #F8F9FA;
@@ -2170,14 +1740,12 @@ footer {
     text-align: center;
 }
 
-
 footer p {
     margin: 5px 0;
 
     color: #64748B;
 
     font-size: 14px;
-
     line-height: 1.5;
 }
 
@@ -2201,7 +1769,6 @@ footer p {
         padding: 55px 40px;
     }
 
-
     .hero-titulo {
         font-size: 44px;
     }
@@ -2213,11 +1780,9 @@ footer p {
         gap: 25px;
     }
 
-
     .carrossel-imagem-wrapper {
         min-width: 240px;
     }
-
 
     .carrossel-img {
         height: 260px;
@@ -2229,7 +1794,6 @@ footer p {
     .mensagem {
         flex-basis: calc(50% - 8px);
     }
-
 }
 
 
@@ -2243,10 +1807,8 @@ footer p {
 
     main > section {
         width: min(100% - 30px, 650px);
-
         margin-bottom: 35px;
     }
-
 
     h2 {
         font-size: 32px;
@@ -2259,33 +1821,26 @@ footer p {
         padding-top: 30px;
     }
 
-
     .container-logo {
         flex-direction: column;
-
         gap: 12px;
     }
-
 
     .logo-texto {
         text-align: center;
     }
 
-
     .logo-imagem {
         width: 70px;
-
         height: 70px;
     }
-
 
     .titulo-principal {
         font-size: 38px;
     }
 
-
     .subtitulo {
-        font-size: 18px;
+        font-size: 16px;
     }
 
 
@@ -2295,7 +1850,6 @@ footer p {
         width: calc(100% - 30px);
 
         margin-top: 25px;
-
         margin-bottom: 35px;
 
         padding: 12px;
@@ -2303,14 +1857,11 @@ footer p {
         border-radius: 20px;
 
         flex-direction: column;
-
         gap: 5px;
     }
 
-
     .menu-link {
         width: 100%;
-
         padding: 9px 15px;
     }
 
@@ -2325,27 +1876,20 @@ footer p {
         border-radius: 20px;
     }
 
-
     .hero-titulo {
         font-size: 36px;
-
         text-align: center;
     }
-
 
     .hero-texto {
         font-size: 17px;
-
         text-align: center;
     }
 
-
     .hero-botoes {
         flex-direction: column;
-
         align-items: stretch;
     }
-
 
     .hero-botao-um,
     .hero-botao-dois {
@@ -2363,16 +1907,15 @@ footer p {
         border-radius: 20px;
     }
 
-
     .mural-titulo {
         font-size: 27px;
     }
 
-
     .mensagem {
         flex: 0 0 100%;
 
-        min-height: 170px;
+        height: 200px;
+        min-height: 200px;
     }
 
 
@@ -2382,16 +1925,13 @@ footer p {
         width: calc(100% - 30px);
     }
 
-
     .sobre-titulo {
         font-size: 30px;
     }
 
-
     .carrossel-container {
         padding: 25px 20px 65px;
     }
-
 
     .carrossel-slide {
         flex-direction: column;
@@ -2401,33 +1941,26 @@ footer p {
         text-align: center;
     }
 
-
     .carrossel-imagem-wrapper {
         width: 100%;
-
         min-width: 0;
     }
-
 
     .carrossel-img {
         height: 210px;
     }
 
-
     .carrossel-slide-titulo {
         font-size: 25px;
     }
-
 
     .carrossel-texto {
         font-size: 16px;
     }
 
-
     .carrossel-container .btn-anterior {
         left: 5px;
     }
-
 
     .carrossel-container .btn-proximo {
         right: 5px;
@@ -2447,21 +1980,17 @@ footer p {
         width: calc(100% - 30px);
     }
 
-
     .quiz-container h2 {
         font-size: 32px;
     }
-
 
     .quiz-container fieldset {
         padding: 25px 20px;
     }
 
-
     .quiz-container legend {
         font-size: 19px;
     }
-
 
     .quiz-container fieldset label {
         font-size: 16px;
@@ -2474,17 +2003,13 @@ footer p {
         padding: 30px 20px;
     }
 
-
     .termometro-titulo {
         font-size: 27px;
-
         line-height: 1.3;
     }
 
-
     .faixas-legenda {
         gap: 5px;
-
         font-size: 11px;
     }
 
@@ -2495,11 +2020,9 @@ footer p {
         padding: 30px 20px;
     }
 
-
     .mural-publicacao > h2 {
         font-size: 30px;
     }
-
 }
 
 
@@ -2513,18 +2036,15 @@ footer p {
 
     .logo-imagem {
         width: 60px;
-
         height: 60px;
     }
-
 
     .titulo-principal {
         font-size: 31px;
     }
 
-
     .subtitulo {
-        font-size: 16px;
+        font-size: 15px;
     }
 
 
@@ -2533,7 +2053,6 @@ footer p {
     .hero-titulo {
         font-size: 30px;
     }
-
 
     .hero-texto {
         font-size: 16px;
@@ -2546,7 +2065,6 @@ footer p {
         font-size: 27px;
     }
 
-
     p {
         font-size: 16px;
     }
@@ -2558,13 +2076,12 @@ footer p {
         font-size: 24px;
     }
 
-
     .mensagem {
-        min-height: 160px;
+        height: 190px;
+        min-height: 190px;
 
         padding: 18px;
     }
-
 
     .texto {
         font-size: 15px;
@@ -2577,30 +2094,24 @@ footer p {
         font-size: 27px;
     }
 
-
     .carrossel-container {
         padding: 20px 15px 60px;
     }
-
 
     .carrossel-img {
         height: 180px;
     }
 
-
     .carrossel-slide-titulo {
         font-size: 22px;
     }
-
 
     .carrossel-texto {
         font-size: 15px;
     }
 
-
     .carrossel-btn {
         width: 38px;
-
         height: 38px;
 
         font-size: 17px;
@@ -2613,16 +2124,13 @@ footer p {
         font-size: 27px;
     }
 
-
     .quiz-container fieldset {
         padding: 20px 15px;
     }
 
-
     .quiz-container legend {
         font-size: 17px;
     }
-
 
     .quiz-container fieldset label {
         font-size: 15px;
@@ -2635,11 +2143,9 @@ footer p {
         padding: 25px 15px;
     }
 
-
     .termometro-titulo {
         font-size: 24px;
     }
-
 
     .faixas-legenda {
         font-size: 10px;
@@ -2652,42 +2158,233 @@ footer p {
         padding: 30px 15px;
     }
 
-
     footer p {
         font-size: 13px;
     }
-
 }
+
+
 /* =========================================================
-   FUNDO ANIMADO — RESPIRAÇÃO DA MENTE
+   FUNDO ANIMADO — MENTE SAUDÁVEL
+========================================================= */
+
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+    background: transparent;
+    isolation: isolate;
+}
+
+
+/* =========================================================
+   IMAGEM DE FUNDO
 ========================================================= */
 
 #fundoAnimado {
+
     position: fixed;
 
-    top: 0;
-    left: 0;
+    top: -3%;
+    left: -3%;
 
-    width: 100vw;
-    height: 100vh;
+    width: 106%;
+    height: 106%;
 
     z-index: -1;
 
     pointer-events: none;
 
-    opacity: 0.55;
+    overflow: hidden;
+
+    background-image:
+        url("../img/fundo-mente-saudavel.png.jpg");
+
+    background-size: cover;
+
+    background-position: center center;
+
+    background-repeat: no-repeat;
+
+    /*
+       O JavaScript controla o transform.
+       Por isso NÃO usamos transition aqui.
+    */
+
+    transform:
+        translate3d(0, 0, 0)
+        scale(1.03);
+
+    transform-origin: center center;
+
+    will-change: transform;
+
 }
 
-/* Garante que o conteúdo fique acima da animação */
+
+/* =========================================================
+   CAMADA SUAVE SOBRE A IMAGEM
+========================================================= */
+
+#fundoAnimado::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CONTEÚDO ACIMA DO FUNDO
+========================================================= */
+
+.cabecalho,
+main,
+footer {
+
+    position: relative;
+
+    z-index: 1;
+}
+
+/* =========================================================
+   CORPO
+========================================================= */
 
 body {
     position: relative;
+
+    min-height: 100vh;
+
+    background: transparent;
 }
+
+/* =========================================================
+   CONTEÚDO ACIMA DO FUNDO
+========================================================= */
 
 .cabecalho,
 main,
 footer {
     position: relative;
-
     z-index: 1;
+}
+
+/* =========================================================
+   BOTÃO DE AJUDA — CVV 188
+========================================================= */
+
+.botao-ajuda-188 {
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 13px 20px;
+
+    background: #0f766e;
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 50px;
+
+    box-shadow:
+        0 6px 20px rgba(0, 0, 0, 0.25);
+
+    z-index: 9999;
+
+    font-weight: 600;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+.botao-ajuda-188:hover {
+    transform:
+        translateY(-4px)
+        scale(1.03);
+
+    background: #0d9488;
+
+    box-shadow:
+        0 10px 28px rgba(0, 0, 0, 0.35);
+}
+
+.icone-ajuda {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        rgba(255, 255, 255, 0.18);
+
+    border-radius: 50%;
+
+    font-size: 20px;
+}
+
+.texto-ajuda {
+    display: flex;
+    flex-direction: column;
+
+    line-height: 1.2;
+
+    font-size: 14px;
+}
+
+.texto-ajuda small {
+    margin-top: 3px;
+
+    font-size: 18px;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   RESPONSIVO — BOTÃO DE AJUDA
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .botao-ajuda-188 {
+        right: 15px;
+        bottom: 15px;
+
+        padding: 11px 15px;
+    }
+
+    .icone-ajuda {
+        width: 34px;
+        height: 34px;
+    }
+
+    .texto-ajuda {
+        font-size: 12px;
+    }
+
+    .texto-ajuda small {
+        font-size: 16px;
+    }
 }
