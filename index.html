@@ -20,62 +20,69 @@
          CABEÇALHO
     ================================================== -->
 
+
     <header class="cabecalho">
 
         <div class="container-logo">
 
-            <img src="img/logo1.jfif" alt="Logo Mente Saudável" class="logo-imagem">
+            <img src="img/logosemfundo.png" alt="Logo Mente Saudável" class="logo-imagem">
 
-            <h1 class="titulo-principal">
+            <div class="logo-texto">
 
-                <span class="fonte-mente">
-                    Mente
-                </span>
+                <h1 class="titulo-principal">
 
-                <span class="fonte-saudavel">
-                    Saudável
-                </span>
+                    <span class="fonte-mente">
+                        Mente
+                    </span>
 
-            </h1>
+                    <span class="fonte-saudavel">
+                        Saudável
+                    </span>
 
-            <h2 class="subtitulo">
-                Equilíbrio é saúde.
-            </h2>
+                </h1>
+
+                <h2 class="subtitulo">
+                    Equilíbrio é saúde.
+                </h2>
+
+            </div>
 
         </div>
 
+    </header>
 
-        <!-- =================================================
+
+    <!-- =================================================
              MENU DE NAVEGAÇÃO
         ================================================== -->
 
-        <nav class="menu-navegacao" aria-label="Menu principal">
+    <nav class="menu-navegacao" aria-label="Menu principal">
 
-            <a class="menu-link" href="#inicio">
-                Início
-            </a>
+        <a class="menu-link" href="#inicio">
+            Início
+        </a>
 
-            <a class="menu-link" href="#sobre">
-                Saúde Mental
-            </a>
+        <a class="menu-link" href="#sobre">
+            Saúde Mental
+        </a>
 
-            <a class="menu-link" href="#curiosidades">
-                Curiosidades
-            </a>
+        <a class="menu-link" href="#curiosidades">
+            Curiosidades
+        </a>
 
-            <a class="menu-link" href="#termometro">
-                Termômetro
-            </a>
+        <a class="menu-link" href="#termometro">
+            Termômetro
+        </a>
 
-            <a class="menu-link" href="#quiz">
-                Quiz
-            </a>
+        <a class="menu-link" href="#quiz">
+            Quiz
+        </a>
 
-            <a class="menu-link" href="#mural">
-                Mural Virtual
-            </a>
+        <a class="menu-link" href="#mural">
+            Mural Virtual
+        </a>
 
-        </nav>
+    </nav>
 
     </header>
 
@@ -465,7 +472,7 @@
 
                         <div class="curiosidade-imagem">
 
-                            <img src="img/img6.jpg" alt="Pessoa praticando atividade física">
+                            <img src="img/img6.jpeg" alt="Pessoa praticando atividade física">
 
                             <span class="curiosidade-numero">
                                 02
@@ -718,7 +725,7 @@
 
 
                 <!-- =================================================
-             T  ERMÔMETRO
+             T  TERMÔMETRO
                 ================================================== -->
 
                 <section id="termometro" class="termometro-container">
@@ -728,14 +735,12 @@
                     </h2>
 
 
-                    <p>
-                        Em uma escala de 0 a 10, como você se sente hoje?
-                    </p>
+
 
 
                     <div class="slider-container">
 
-                        <input type="range" min="0" max="10" value="5" id="nivel">
+
 
 
                         <div class="valor-atual">
@@ -807,17 +812,6 @@
                     <button class="botao-salvar" type="button">
                         Salvar registro de hoje
                     </button>
-
-
-                    <div class="historico">
-
-                        <h4>
-                            📊 Histórico recente
-                        </h4>
-
-                        <div id="listaHistorico"></div>
-
-                    </div>
 
                 </section>
 
@@ -902,6 +896,18 @@
 
     </footer>
 
+    <!-- BOTÃO DE AJUDA - CVV 188 -->
+    <a href="tel:188" class="botao-ajuda-188" aria-label="Solicitar ajuda pelo número 188">
+        <span class="icone-ajuda">❤</span>
+        <span class="texto-ajuda">
+            Precisa de ajuda?
+            <small>Ligue 188</small>
+        </span>
+    </a>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.0.0/dist/supabase.min.js"></script>
+    <script src="js/supabase.js"></script>
     <script src="js/script.js"></script>
 
 </body>
