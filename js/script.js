@@ -936,7 +936,7 @@ document.addEventListener(
         }
 
 
-        /*
+       /*
          * Mural Virtual
          */
 
@@ -946,19 +946,17 @@ document.addEventListener(
             );
 
 
-       if (error) {
-          console.error("Erro ao salvar mensagem no Supabase:", error);
-          alert("Erro ao enviar mensagem: " + error.message);
-          return;
-      }
-      
-         campoNome.value = "";
-         campoMensagem.value = "";
-      
-         alert("Mensagem publicada com sucesso!");
-      
-         // Recarrega as mensagens do banco de dados na tela
-         await carregarMensagensDoBanco();
+        if (formMensagem) {
+
+            formMensagem.addEventListener(
+                "submit",
+                publicarMensagem
+            );
+
+        }
+
+        // CARREGA AS MENSAGENS DO SUPABASE AO ABRIR A PÁGINA:
+        carregarMensagensDoBanco();
 
         /*
          * Carrosséis
