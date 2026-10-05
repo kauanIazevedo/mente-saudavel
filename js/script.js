@@ -204,86 +204,75 @@ function salvarRegistro() {
 }
 
 /* =========================================================
-   MURAL VIRTUAL — PUBLICAÇÃO DE MENSAGENS
+   MURAL VIRTUAL — PUBLICAÇÃO DE MENSAGENS NO SUPABASE
 ========================================================= */
 
-function publicarMensagem(event) {
+async function publicarMensagem(event) {
 
     event.preventDefault();
 
+    const campoNome = document.getElementById("nome");
+    const campoMensagem = document.getElementById("mensagem");
+    const mural = document.getElementById("muralMensagens");
 
-    const campoNome =
-        document.getElementById("nome");
-
-
-    const campoMensagem =
-        document.getElementById("mensagem");
-
-
-    const mural =
-        document.getElementById(
-            "muralMensagens"
-        );
-
-
-    if (
-        !campoNome ||
-        !campoMensagem ||
-        !mural
-    ) {
+    if (!campoNome || !campoMensagem || !mural) {
         return;
     }
 
-
-    const nome =
-        campoNome.value.trim();
-
-
-    const mensagem =
-        campoMensagem.value.trim();
-
+    const nome = campoNome.value.trim();
+    const mensagem = campoMensagem.value.trim();
 
     if (!nome || !mensagem) {
         return;
     }
 
+    // Verifica se o Supabase está disponível
+    const client = window.supabaseClient;
 
-    const novaMensagem =
-        document.createElement("div");
+    if (!client) {
+        alert("Erro de conexão com o Supabase. Verifique a inclusão da biblioteca CDN no HTML.");
+        return;
+    }
 
+    try {
+        const { data, error } = await client
+            .from("mensagens")
+            .insert([
+                {
+                    nome: nome,
+                    mensagem: mensagem
+                }
+            ]);
 
-    novaMensagem.className =
-        "mensagem-publicada";
+        if (error) {
+            console.error("Erro ao salvar mensagem no Supabase:", error);
+            alert("Erro ao enviar mensagem: " + error.message);
+            return;
+        }
 
+        // Adiciona a mensagem visualmente na tela
+        const novaMensagem = document.createElement("div");
+        novaMensagem.className = "mensagem-publicada";
 
-    const autor =
-        document.createElement("strong");
+        const autor = document.createElement("strong");
+        autor.textContent = `${nome}: `;
 
+        const texto = document.createElement("span");
+        texto.textContent = mensagem;
 
-    autor.textContent =
-        `${nome}: `;
+        novaMensagem.appendChild(autor);
+        novaMensagem.appendChild(texto);
+        mural.appendChild(novaMensagem);
 
+        campoNome.value = "";
+        campoMensagem.value = "";
 
-    const texto =
-        document.createElement("span");
+        alert("Mensagem publicada com sucesso!");
 
-
-    texto.textContent =
-        mensagem;
-
-
-    novaMensagem.appendChild(autor);
-
-    novaMensagem.appendChild(texto);
-
-
-    mural.appendChild(novaMensagem);
-
-
-    campoNome.value = "";
-
-    campoMensagem.value = "";
-
+    } catch (err) {
+        console.error("Erro inesperado:", err);
+        alert("Erro de conexão com a base de dados.");
+    }
 }
 
 
