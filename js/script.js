@@ -204,29 +204,77 @@ function salvarRegistro() {
 }
 
 /* =========================================================
-   MURAL VIRTUAL — PUBLICAÇÃO DE MENSAGENS NO SUPABASE
+   MURAL MOTIVACIONAL — CARREGAR E EXIBIR MENSAGENS DO SUPABASE
 ========================================================= */
 
-async function publicarMensagem(event) {
+async function carregarMensagensDoBanco() {
+    // Procura o container das cartas do carrossel do Mural Motivacional
+    const track = document.querySelector("#mural .carrosel-track");
+    if (!track) return;
 
+    const client = window.supabaseClient;
+    if (!client) return;
+
+    try {
+        const { data, error } = await client
+            .from("mensagens")
+            .select("nome, mensagem, created_at")
+            .order("created_at", { ascending: false });
+
+        if (error) {
+            console.error("Erro ao carregar mensagens:", error);
+            return;
+        }
+
+        if (!data || data.length === 0) return;
+
+        // Limpa mensagens estáticas e adiciona as mensagens vindas do banco de dados
+        track.innerHTML = "";
+
+        data.forEach(item => {
+            const dataFormatada = item.created_at 
+                ? new Date(item.created_at).toLocaleDateString("pt-BR")
+                : new Date().toLocaleDateString("pt-BR");
+
+            const cardMensagem = document.createElement("div");
+            cardMensagem.className = "mensagem";
+
+            cardMensagem.innerHTML = `
+                <div class="texto">"${item.mensagem}"</div>
+                <div class="rodape">
+                    <span class="icone">💛</span>
+                    <span class="autor" style="font-weight: bold; margin-right: 8px;">${item.nome}</span>
+                    <span class="data">${dataFormatada}</span>
+                </div>
+            `;
+
+            track.appendChild(cardMensagem);
+        });
+
+        // Reinicia o carrossel para ajustar a largura dos novos cards
+        if (typeof iniciarMuralMotivacional === "function") {
+            iniciarMuralMotivacional();
+        }
+
+    } catch (err) {
+        console.error("Erro ao conectar com o banco para buscar mensagens:", err);
+    }
+}
+
+
+async function publicarMensagem(event) {
     event.preventDefault();
 
     const campoNome = document.getElementById("nome");
     const campoMensagem = document.getElementById("mensagem");
-    const mural = document.getElementById("muralMensagens");
 
-    if (!campoNome || !campoMensagem || !mural) {
-        return;
-    }
+    if (!campoNome || !campoMensagem) return;
 
     const nome = campoNome.value.trim();
     const mensagem = campoMensagem.value.trim();
 
-    if (!nome || !mensagem) {
-        return;
-    }
+    if (!nome || !mensagem) return;
 
-    // Verifica se o Supabase está disponível
     const client = window.supabaseClient;
 
     if (!client) {
@@ -250,82 +298,17 @@ async function publicarMensagem(event) {
             return;
         }
 
-        // Adiciona a mensagem visualmente na tela
-        const novaMensagem = document.createElement("div");
-        novaMensagem.className = "mensagem-publicada";
-
-        const autor = document.createElement("strong");
-        autor.textContent = `${nome}: `;
-
-        const texto = document.createElement("span");
-        texto.textContent = mensagem;
-
-        novaMensagem.appendChild(autor);
-        novaMensagem.appendChild(texto);
-        mural.appendChild(novaMensagem);
-
         campoNome.value = "";
         campoMensagem.value = "";
 
-        alert("Mensagem publicada com sucesso!");
+        alert("Mensagem enviada com sucesso para o Mural!");
+
+        // Recarrega as mensagens do banco e atualiza o carrossel do mural
+        await carregarMensagensDoBanco();
 
     } catch (err) {
         console.error("Erro inesperado:", err);
         alert("Erro de conexão com a base de dados.");
-    }
-}
-
-
-/* =========================================================
-   MURAL VIRTUAL — CARREGAR MENSAGENS DO SUPABASE
-========================================================= */
-
-async function carregarMensagensDoBanco() {
-    const mural = document.getElementById("muralMensagens");
-    if (!mural) return;
-
-    const client = window.supabaseClient;
-    if (!client) return;
-
-    try {
-        // Busca as mensagens no banco ordenadas pela mais recente
-        const { data, error } = await client
-            .from("mensagens")
-            .select("nome, mensagem, created_at")
-            .order("created_at", { ascending: false });
-
-        if (error) {
-            console.error("Erro ao carregar mensagens:", error);
-            return;
-        }
-
-        // Limpa o conteúdo estático/local do container
-        mural.innerHTML = "";
-
-        if (data.length === 0) {
-            mural.innerHTML = "<p style='color: #666;'>Nenhuma mensagem enviada ainda. Seja o primeiro!</p>";
-            return;
-        }
-
-        // Renderiza cada mensagem vinda do banco
-        data.forEach(item => {
-            const novaMensagem = document.createElement("div");
-            novaMensagem.className = "mensagem-publicada";
-            novaMensagem.style.marginBottom = "12px";
-
-            const autor = document.createElement("strong");
-            autor.textContent = `${item.nome}: `;
-
-            const texto = document.createElement("span");
-            texto.textContent = item.mensagem;
-
-            novaMensagem.appendChild(autor);
-            novaMensagem.appendChild(texto);
-            mural.appendChild(novaMensagem);
-        });
-
-    } catch (err) {
-        console.error("Erro ao conectar com o banco para buscar mensagens:", err);
     }
 }
 
