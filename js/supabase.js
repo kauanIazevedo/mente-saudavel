@@ -5,4 +5,6 @@
 const supabaseUrl = "https://orppecfotrjozibrrfnr.supabase.co";
 const supabaseKey = "sb_publishable_RY-0sI1UVqJgcKdZgvwzdg_t_JHNLUk";
 
-const supabase = createClient(supabaseUrl, supabaseKey);
+const supabase = (supabaseLib && supabaseLib.createClient)
+    ? supabaseLib.createClient(supabaseUrl, supabaseKey)
+    : null;
