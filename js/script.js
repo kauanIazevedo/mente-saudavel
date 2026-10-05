@@ -277,6 +277,60 @@ async function publicarMensagem(event) {
 
 
 /* =========================================================
+   MURAL VIRTUAL — CARREGAR MENSAGENS DO SUPABASE
+========================================================= */
+
+async function carregarMensagensDoBanco() {
+    const mural = document.getElementById("muralMensagens");
+    if (!mural) return;
+
+    const client = window.supabaseClient;
+    if (!client) return;
+
+    try {
+        // Busca as mensagens no banco ordenadas pela mais recente
+        const { data, error } = await client
+            .from("mensagens")
+            .select("nome, mensagem, created_at")
+            .order("created_at", { ascending: false });
+
+        if (error) {
+            console.error("Erro ao carregar mensagens:", error);
+            return;
+        }
+
+        // Limpa o conteúdo estático/local do container
+        mural.innerHTML = "";
+
+        if (data.length === 0) {
+            mural.innerHTML = "<p style='color: #666;'>Nenhuma mensagem enviada ainda. Seja o primeiro!</p>";
+            return;
+        }
+
+        // Renderiza cada mensagem vinda do banco
+        data.forEach(item => {
+            const novaMensagem = document.createElement("div");
+            novaMensagem.className = "mensagem-publicada";
+            novaMensagem.style.marginBottom = "12px";
+
+            const autor = document.createElement("strong");
+            autor.textContent = `${item.nome}: `;
+
+            const texto = document.createElement("span");
+            texto.textContent = item.mensagem;
+
+            novaMensagem.appendChild(autor);
+            novaMensagem.appendChild(texto);
+            mural.appendChild(novaMensagem);
+        });
+
+    } catch (err) {
+        console.error("Erro ao conectar com o banco para buscar mensagens:", err);
+    }
+}
+
+
+/* =========================================================
    CARROSSEL — SAÚDE MENTAL
 ========================================================= */
 
@@ -892,15 +946,19 @@ document.addEventListener(
             );
 
 
-        if (formMensagem) {
-
-            formMensagem.addEventListener(
-                "submit",
-                publicarMensagem
-            );
-
-        }
-
+       if (error) {
+          console.error("Erro ao salvar mensagem no Supabase:", error);
+          alert("Erro ao enviar mensagem: " + error.message);
+          return;
+      }
+      
+         campoNome.value = "";
+         campoMensagem.value = "";
+      
+         alert("Mensagem publicada com sucesso!");
+      
+         // Recarrega as mensagens do banco de dados na tela
+         await carregarMensagensDoBanco();
 
         /*
          * Carrosséis
@@ -915,7 +973,7 @@ document.addEventListener(
          * Dados iniciais
          */
 
-        atualizarTermometro();
+        //atualizarTermometro();
 
         carregarHistorico();
 
